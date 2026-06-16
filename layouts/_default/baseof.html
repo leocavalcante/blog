@@ -22,6 +22,7 @@
           <a href="{{ "posts/" | relLangURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>{{ cond $isPT "Arquivo" "Archive" }}</a>
           {{ with site.GetPage "livros" }}<a href="{{ .RelPermalink }}" {{ if eq .RelPermalink $.RelPermalink }}aria-current="page"{{ end }}>{{ cond $isPT "Livros" "Books" }}</a>{{ end }}
           <a href="{{ "tags/" | relLangURL }}" {{ if eq .Section "tags" }}aria-current="page"{{ end }}>Tags</a>
+          <a href="#search" id="search-toggle">{{ cond $isPT "Buscar" "Search" }}</a>
           <a href="{{ "index.xml" | relLangURL }}">RSS</a>
           {{ if gt (len .AllTranslations) 1 }}
             <span class="language-nav" aria-label="{{ cond $isPT "Idiomas" "Languages" }}">
@@ -35,6 +36,9 @@
           {{ end }}
         </nav>
       </div>
+      {{ if .IsPage }}
+        <div id="progress-bar" style="width: 0; height: 3px; background: var(--accent); position: absolute; bottom: 0; left: 0; transition: width 0.1s; z-index: 10;"></div>
+      {{ end }}
     </header>
     <main id="main">
       {{ block "main" . }}{{ end }}
