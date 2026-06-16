@@ -53,6 +53,25 @@
           const scrolled = (winScroll / height) * 100;
           document.getElementById("progress-bar").style.width = scrolled + "%";
         });
+
+        document.querySelectorAll('pre').forEach((pre) => {
+          const button = document.createElement('button');
+          button.className = 'copy-code';
+          button.innerText = '{{ cond $isPT "Copiar" "Copy" }}';
+          
+          pre.style.position = 'relative';
+          pre.appendChild(button);
+
+          button.addEventListener('click', () => {
+            const code = pre.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+              button.innerText = '{{ cond $isPT "Copiado!" "Copied!" }}';
+              setTimeout(() => {
+                button.innerText = '{{ cond $isPT "Copiar" "Copy" }}';
+              }, 2000);
+            });
+          });
+        });
       </script>
     {{ end }}
   </body>
