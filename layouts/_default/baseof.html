@@ -77,6 +77,45 @@
             });
           });
         });
+
+        const searchToggle = document.getElementById('search-toggle');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchClose = document.getElementById('search-close');
+
+        if (searchToggle && searchOverlay && searchClose) {
+          searchToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            if (!window.pagefind) {
+              const script = document.createElement('script');
+              script.src = '/pagefind/pagefind-ui.js';
+              script.onload = () => {
+                new PagefindUI({ element: "#search", showSubResults: true });
+              };
+              document.head.appendChild(script);
+
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = '/pagefind/pagefind-ui.css';
+              document.head.appendChild(link);
+              window.pagefind = true;
+            }
+          });
+
+          searchClose.addEventListener('click', () => {
+            searchOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+          });
+
+          window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              searchOverlay.style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        }
       </script>
     {{ end }}
   </body>
