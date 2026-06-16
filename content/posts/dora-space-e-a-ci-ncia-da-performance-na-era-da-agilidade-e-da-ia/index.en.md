@@ -6,7 +6,12 @@ description: |-
 date: "2026-02-23T10:00:00-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - ai
+    - developer-experience
+    - performance
+    - best-practices
+    - architecture
 url: /en/dora-space-e-a-ci-ncia-da-performance-na-era-da-agilidade-e-da-ia/
 cover: cover.jpg
 cover_alt: ""

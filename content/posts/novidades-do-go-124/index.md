@@ -6,6 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
+    - releases
+    - tooling
+    - performance
+    - webassembly
 url: /novidades-do-go-124/
 cover: cover.jpg
 cover_alt: ""

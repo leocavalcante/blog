@@ -6,7 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
-    - swiss-tables
+    - performance
+    - data-structures
+    - releases
+    - hash-tables
 url: /swiss-tables-go-124/
 cover: cover.jpg
 cover_alt: ""

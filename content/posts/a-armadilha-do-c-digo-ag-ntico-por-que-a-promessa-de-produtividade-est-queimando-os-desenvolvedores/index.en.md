@@ -4,7 +4,12 @@ description: 'The pace of software development has undergone unprecedented compr
 date: "2026-06-01T10:00:00-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - ai
+    - agent
+    - developer-burnout
+    - skill-atrophy
+    - productivity-paradox
 url: /en/a-armadilha-do-c-digo-ag-ntico-por-que-a-promessa-de-produtividade-est-queimando-os-desenvolvedores/
 cover: cover.jpg
 cover_alt: ""

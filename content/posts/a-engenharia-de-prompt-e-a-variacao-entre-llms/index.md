@@ -6,9 +6,10 @@ updated: ""
 draft: false
 tags:
     - ai
-    - artificial-intelligence
-    - development
-    - llms
+    - llm
+    - prompt-engineering
+    - tooling
+    - model-variation
 url: /a-engenharia-de-prompt-e-a-variacao-entre-llms/
 cover: cover.jpg
 cover_alt: ""

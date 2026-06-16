@@ -5,11 +5,11 @@ date: "2018-09-29T23:32:07-03:00"
 updated: "2018-09-29T23:32:07-03:00"
 draft: false
 tags:
-    - aspnetcore
     - fsharp
+    - api
     - mongodb
-    - rest-api
-    - to-do-list
+    - functional-programming
+    - dotnet
 url: /archive/medium/rest-api-with-mongodb-and-f-on-net-core-605a2336f264/
 cover: cover.jpg
 cover_alt: ""

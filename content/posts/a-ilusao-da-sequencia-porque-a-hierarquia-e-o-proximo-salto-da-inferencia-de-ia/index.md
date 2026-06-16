@@ -7,7 +7,9 @@ draft: false
 tags:
     - ai
     - llm
-    - rlm
+    - neural-architecture
+    - performance
+    - architecture
 url: /a-ilusao-da-sequencia-porque-a-hierarquia-e-o-proximo-salto-da-inferencia-de-ia/
 cover: cover.jpg
 cover_alt: ""

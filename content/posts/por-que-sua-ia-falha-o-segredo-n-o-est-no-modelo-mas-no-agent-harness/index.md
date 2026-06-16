@@ -4,7 +4,12 @@ description: 'Você já deve ter passado por isso: em um momento, o GPT ou o Cla
 date: "2026-05-04T10:00:00-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - ai
+    - agent
+    - llm
+    - reliability
+    - best-practices
 url: /por-que-sua-ia-falha-o-segredo-n-o-est-no-modelo-mas-no-agent-harness/
 cover: cover.jpg
 cover_alt: ""

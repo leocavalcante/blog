@@ -6,9 +6,9 @@ updated: ""
 draft: false
 tags:
     - agent
-    - agentic-ai
-    - agents
     - ai
+    - architecture
+    - best-practices
     - llm
 url: /en/sistemas-multi-agentes-de-ia-quando-usar-como-construir-e-porque-tantos-falham/
 cover: cover.jpg

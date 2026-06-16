@@ -5,11 +5,11 @@ date: "2022-03-22T15:44:16-03:00"
 updated: "2022-03-22T15:44:16-03:00"
 draft: false
 tags:
-    - hyperf
-    - opentelemetry
+    - observability
     - php
-    - swoole
-    - tech
+    - architecture
+    - hyperf
+    - cloud
 url: /en/archive/medium/observabilidade-com-hyperf-e-opentelemetry-dd698844eda/
 cover: cover.png
 cover_alt: ""

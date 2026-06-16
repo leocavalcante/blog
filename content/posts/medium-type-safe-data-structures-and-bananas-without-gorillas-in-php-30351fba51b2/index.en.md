@@ -5,10 +5,11 @@ date: "2017-04-30T17:23:50-03:00"
 updated: "2017-04-30T17:23:50-03:00"
 draft: false
 tags:
-    - functional-programming
-    - object-oriented
     - php
+    - functional-programming
+    - type-safety
     - programming
+    - best-practices
 url: /en/archive/medium/type-safe-data-structures-and-bananas-without-gorillas-in-php-30351fba51b2/
 cover: cover.jpg
 cover_alt: ""

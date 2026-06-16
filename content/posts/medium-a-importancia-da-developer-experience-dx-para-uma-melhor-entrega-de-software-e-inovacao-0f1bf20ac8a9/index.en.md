@@ -6,8 +6,10 @@ updated: "2024-09-30T09:41:43-03:00"
 draft: false
 tags:
     - developer-experience
-    - devex
-    - dx
+    - tooling
+    - innovation
+    - best-practices
+    - performance
 url: /en/archive/medium/a-importancia-da-developer-experience-dx-para-uma-melhor-entrega-de-software-e-inovacao-0f1bf20ac8a9/
 cover: cover.jpg
 cover_alt: ""

@@ -6,8 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
-    - pointers-in-go
-    - weak-pointer
+    - releases
+    - memory-management
+    - garbage-collection
+    - performance
 url: /weak-pointers-no-go-124-entendendo-e-aplicando-na-pratica/
 cover: cover.jpg
 cover_alt: ""

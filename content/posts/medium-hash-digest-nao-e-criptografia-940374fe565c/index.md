@@ -5,9 +5,11 @@ date: "2017-11-07T00:20:49-02:00"
 updated: "2017-11-07T00:25:21-02:00"
 draft: false
 tags:
-    - criptografia
-    - hashing
-    - programação
+    - security
+    - programming
+    - development
+    - best-practices
+    - philosophy
 url: /archive/medium/hash-digest-nao-e-criptografia-940374fe565c/
 cover: cover.png
 cover_alt: ""

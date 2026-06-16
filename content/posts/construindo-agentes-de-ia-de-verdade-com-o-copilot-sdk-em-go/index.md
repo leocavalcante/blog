@@ -4,7 +4,12 @@ description: Se você acompanha o ecossistema do GitHub Copilot, provavelmente j
 date: "2026-04-22T10:00:00-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - ai
+    - agent
+    - go
+    - developer-experience
+    - architecture
 url: /construindo-agentes-de-ia-de-verdade-com-o-copilot-sdk-em-go/
 cover: cover.jpg
 cover_alt: ""

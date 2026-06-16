@@ -4,7 +4,12 @@ description: 'Em Go, o context.Context é o mecanismo padrão para propagar canc
 date: "2026-05-18T10:00:00-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - go
+    - context
+    - concurrency
+    - best-practices
+    - debugging
 url: /quando-o-contexto-te-trai-derivando-contextos-para-opera-es-opcionais-em-go/
 cover: cover.jpg
 cover_alt: ""

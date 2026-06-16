@@ -5,8 +5,11 @@ date: "2025-01-28T17:23:39-03:00"
 updated: ""
 draft: false
 tags:
-    - functional-programming
     - go
+    - functional-programming
+    - programming
+    - libraries
+    - development
 url: /en/programacao-funcional-com-golang/
 cover: cover.webp
 cover_alt: ""

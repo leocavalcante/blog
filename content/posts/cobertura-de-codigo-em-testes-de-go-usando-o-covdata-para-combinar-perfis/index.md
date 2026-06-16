@@ -4,7 +4,12 @@ description: Acho que uma das minhas maiores aventuras com Go tem sido trabalhar
 date: "2024-11-26T11:52:52-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - go
+    - testing
+    - code-coverage
+    - tooling
+    - quality-assurance
 url: /cobertura-de-codigo-em-testes-de-go-usando-o-covdata-para-combinar-perfis/
 cover: cover.jpg
 cover_alt: ""

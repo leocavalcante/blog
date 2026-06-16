@@ -6,6 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
+    - performance
+    - concurrency
+    - development
+    - best-practices
 url: /en/go-125/
 cover: cover.jpg
 cover_alt: ""

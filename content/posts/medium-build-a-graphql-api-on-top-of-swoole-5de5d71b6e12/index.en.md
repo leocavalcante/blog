@@ -6,9 +6,10 @@ updated: "2019-08-10T16:53:06-03:00"
 draft: false
 tags:
     - api
-    - graphql
-    - siler
+    - php
     - swoole
+    - async
+    - architecture
 url: /en/archive/medium/build-a-graphql-api-on-top-of-swoole-5de5d71b6e12/
 cover: ""
 cover_alt: ""

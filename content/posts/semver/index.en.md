@@ -5,9 +5,11 @@ date: "2024-10-24T10:01:27-03:00"
 updated: ""
 draft: false
 tags:
-    - git
     - semantic-versioning
     - version-control
+    - git
+    - releases
+    - best-practices
 url: /en/semver/
 cover: cover.jpg
 cover_alt: ""

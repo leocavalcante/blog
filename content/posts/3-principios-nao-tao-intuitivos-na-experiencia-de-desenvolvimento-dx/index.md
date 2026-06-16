@@ -6,6 +6,10 @@ updated: ""
 draft: false
 tags:
     - developer-experience
+    - best-practices
+    - tooling
+    - performance
+    - innovation
 url: /3-principios-nao-tao-intuitivos-na-experiencia-de-desenvolvimento-dx/
 cover: cover.png
 cover_alt: ""

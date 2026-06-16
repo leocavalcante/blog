@@ -5,11 +5,11 @@ date: "2024-04-15T10:11:04-03:00"
 updated: "2024-04-17T14:44:14-03:00"
 draft: false
 tags:
-    - concurrency
     - go
-    - golang
+    - concurrency
     - kubernetes
-    - threads
+    - performance
+    - containers
 url: /archive/medium/maximizando-a-performance-de-goroutines-em-containers-com-limitacao-de-cpu-b837af1dc683/
 cover: cover.jpg
 cover_alt: ""

@@ -5,10 +5,11 @@ date: "2022-02-28T22:17:19-03:00"
 updated: "2022-03-01T00:17:19-03:00"
 draft: false
 tags:
-    - aws
+    - cloud
     - php
-    - serverless
+    - async
     - swoole
+    - coroutines
 url: /archive/devto/using-brefs-lambaruntime-to-asynchronously-run-swoole-coroutines-as-functions-on-aws-1icm/
 cover: cover.webp
 cover_alt: ""

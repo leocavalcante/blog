@@ -6,11 +6,10 @@ updated: ""
 draft: false
 tags:
     - ai
-    - ai-engineering
-    - artificial-intelligence
-    - chunking
     - rag
-    - reranking
+    - llm
+    - retrieval
+    - engineering
 url: /levando-ai-engineering-para-o-proximo-nivel-com-rag/
 cover: cover.jpg
 cover_alt: ""

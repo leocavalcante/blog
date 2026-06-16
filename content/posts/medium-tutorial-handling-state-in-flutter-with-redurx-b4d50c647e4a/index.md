@@ -5,11 +5,11 @@ date: "2018-08-04T15:29:51-03:00"
 updated: "2018-08-30T11:31:59-03:00"
 draft: false
 tags:
-    - android-app-development
-    - dart
     - flutter
-    - ios-app-development
+    - state-management
+    - dart
     - redux
+    - mobile-development
 url: /archive/medium/tutorial-handling-state-in-flutter-with-redurx-b4d50c647e4a/
 cover: cover.gif
 cover_alt: ""

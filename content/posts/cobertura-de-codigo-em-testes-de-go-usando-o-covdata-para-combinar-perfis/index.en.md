@@ -4,7 +4,12 @@ description: "I think one of my biggest adventures with Go has been working with
 date: "2024-11-26T11:52:52-03:00"
 updated: ""
 draft: false
-tags: []
+tags:
+    - go
+    - testing
+    - code-coverage
+    - tooling
+    - quality-assurance
 url: /en/cobertura-de-codigo-em-testes-de-go-usando-o-covdata-para-combinar-perfis/
 cover: cover.jpg
 cover_alt: ""

@@ -6,6 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
+    - language-design
+    - pragmatism
+    - developer-experience
+    - philosophy
 url: /en/why-go-should-sometimes-be-a-no-go/
 cover: cover.jpg
 cover_alt: ""

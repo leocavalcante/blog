@@ -7,6 +7,9 @@ draft: false
 tags:
     - go
     - survey
+    - tooling
+    - ai
+    - community-insights
 url: /en/analise-do-go-developer-survey-2024/
 cover: cover.jpg
 cover_alt: ""

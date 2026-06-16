@@ -8,6 +8,8 @@ tags:
     - fsharp
     - functional-programming
     - music
+    - domain-modeling
+    - programming
 url: /archive/medium/music-with-f-the-language-and-the-note-403bd1fcfc31/
 cover: cover.jpg
 cover_alt: ""

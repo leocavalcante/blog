@@ -8,7 +8,8 @@ tags:
     - cloud
     - hyperf
     - php
-    - swoole
+    - kubernetes
+    - architecture
 url: /en/archive/devto/cloud-native-hyperf-6ja/
 cover: cover.webp
 cover_alt: ""

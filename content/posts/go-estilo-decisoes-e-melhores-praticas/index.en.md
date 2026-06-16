@@ -5,10 +5,11 @@ date: "2025-01-20T08:00:23-03:00"
 updated: ""
 draft: false
 tags:
-    - best-practices
     - go
-    - google
-    - styleguide
+    - best-practices
+    - development
+    - developer-experience
+    - programming
 url: /en/go-estilo-decisoes-e-melhores-praticas/
 cover: cover.jpg
 cover_alt: ""

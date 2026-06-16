@@ -6,7 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
+    - developer-experience
     - monorepo
+    - career
+    - pragmatism
 url: /en/um-ano-de-golanged/
 cover: cover.png
 cover_alt: ""

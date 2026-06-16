@@ -5,11 +5,11 @@ date: "2022-03-02T12:53:25-03:00"
 updated: "2022-03-02T12:53:25-03:00"
 draft: false
 tags:
-    - aws
-    - lambda
+    - cloud
     - php
     - swoole
-    - tech
+    - coroutines
+    - async
 url: /en/archive/medium/usando-a-bref-para-executar-de-forma-assincrona-corrotinas-da-swoole-como-funcoes-na-aws-lambda-3c7a1c7ee4ef/
 cover: cover.png
 cover_alt: ""

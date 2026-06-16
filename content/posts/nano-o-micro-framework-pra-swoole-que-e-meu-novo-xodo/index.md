@@ -5,10 +5,11 @@ date: "2021-07-24T22:17:38-03:00"
 updated: ""
 draft: false
 tags:
-    - async
-    - framework
-    - microservices
+    - swoole
     - php
+    - architecture
+    - async
+    - coroutines
 url: /nano-o-micro-framework-pra-swoole-que-e-meu-novo-xodo/
 cover: ""
 cover_alt: ""

@@ -6,6 +6,10 @@ updated: ""
 draft: false
 tags:
     - go
+    - language-design
+    - philosophy
+    - developer-experience
+    - best-practices
 url: /en/os-valores-de-go/
 cover: cover.jpg
 cover_alt: ""
