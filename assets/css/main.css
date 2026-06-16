@@ -642,6 +642,13 @@ h1 {
 
 .footer-links a {
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-links svg {
+  flex-shrink: 0;
 }
 
 .pagination {
