@@ -1,0 +1,62 @@
+{{ if .IsHome }}
+  {{ $data := dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" site.Title
+    "url" site.BaseURL
+    "description" site.Params.description
+    "inLanguage" (site.Language.Locale | default site.Language.Lang)
+    "author" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+  }}
+  {{- printf `<script type="application/ld+json">%s</script>` ($data | jsonify) | safeHTML }}
+{{ else if .IsPage }}
+  {{ $description := .Params.description | default .Summary | default site.Params.description }}
+  {{ $image := "" }}
+  {{ with .Params.cover }}
+    {{ with $.Resources.GetMatch . }}
+      {{ $image = .Permalink }}
+    {{ end }}
+  {{ end }}
+  {{ if not $image }}
+    {{ with site.Params.images }}
+      {{ $image = index . 0 | absURL }}
+    {{ end }}
+  {{ end }}
+  {{ $author := dict "@type" "Person" "name" site.Params.author "url" site.BaseURL }}
+  {{ $mainEntity := dict "@type" "WebPage" "@id" .Permalink }}
+  {{ $data := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "headline" .Title
+    "description" $description
+    "url" .Permalink
+    "inLanguage" (site.Language.Locale | default site.Language.Lang)
+    "author" $author
+    "publisher" $author
+    "mainEntityOfPage" $mainEntity
+  }}
+  {{ if not .Date.IsZero }}
+    {{ $data = merge $data (dict "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")) }}
+  {{ end }}
+  {{ with .Params.updated }}
+    {{ $data = merge $data (dict "dateModified" .) }}
+  {{ end }}
+  {{ with $image }}
+    {{ $data = merge $data (dict "image" .) }}
+  {{ end }}
+  {{ with .Params.tags }}
+    {{ $data = merge $data (dict "keywords" (delimit . ", ")) }}
+  {{ end }}
+  {{- printf `<script type="application/ld+json">%s</script>` ($data | jsonify) | safeHTML }}
+{{ else }}
+  {{ $description := .Description | default site.Params.description }}
+  {{ $data := dict
+    "@context" "https://schema.org"
+    "@type" "CollectionPage"
+    "name" .Title
+    "description" $description
+    "url" .Permalink
+    "inLanguage" (site.Language.Locale | default site.Language.Lang)
+  }}
+  {{- printf `<script type="application/ld+json">%s</script>` ($data | jsonify) | safeHTML }}
+{{ end }}
