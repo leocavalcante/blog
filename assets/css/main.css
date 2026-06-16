@@ -46,16 +46,28 @@ a {
   color: inherit;
   text-decoration-color: color-mix(in srgb, var(--accent), transparent 35%);
   text-underline-offset: 0.18em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 a:hover {
   color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.post-card,
+.featured {
+  animation: fadeIn 0.5s ease out forwards;
 }
 
 .wrap {
