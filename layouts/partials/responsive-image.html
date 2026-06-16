@@ -1,0 +1,19 @@
+{{ $image := .Resource }}
+{{ $alt := .Alt }}
+{{ $class := .Class }}
+{{ $loading := .Loading | default "lazy" }}
+
+{{ if $image }}
+  {{ $webp := $image.Process "webp" }}
+  <picture>
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img 
+      src="{{ $image.RelPermalink }}" 
+      alt="{{ $alt }}" 
+      class="{{ $class }}" 
+      loading="{{ $loading }}"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+    >
+  </picture>
+{{ end }}
