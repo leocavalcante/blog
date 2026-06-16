@@ -7,7 +7,7 @@
     {{ partial "meta.html" . }}
     {{ partial "jsonld.html" . }}
     {{ $options := dict "targetPath" "css/main.css" "enableSourceMap" true }}
-    {{ $css := resources.Get "css/main.css" | toCSS $options | minify | fingerprint }}
+    {{ $css := resources.Get "css/main.scss" | toCSS $options | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   </head>
   <body>
