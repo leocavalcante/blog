@@ -142,6 +142,9 @@ img {
   font-size: 0.78rem;
   font-weight: 760;
   color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .language-nav a[aria-current="true"] {
