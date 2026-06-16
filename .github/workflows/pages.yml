@@ -60,6 +60,9 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
 
+      - name: Index with Pagefind
+        run: npx pagefind --site public
+
       - name: Save Hugo cache
         uses: actions/cache/save@v5
         with:
