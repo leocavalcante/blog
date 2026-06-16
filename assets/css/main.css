@@ -130,6 +130,11 @@ img {
   font-size: 0.94rem;
 }
 
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 760;
+}
+
 .language-nav {
   display: inline-flex;
   align-items: center;
