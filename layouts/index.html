@@ -12,7 +12,7 @@
         <a class="featured" href="{{ .RelPermalink }}">
           {{ with .Params.cover }}
             {{ with $.Resources.GetMatch . }}
-              <img src="{{ .RelPermalink }}" alt="{{ $.Params.cover_alt | default "" }}">
+              {{ partial "responsive-image.html" (dict "Resource" . "Alt" ($.Params.cover_alt | default "") "Loading" "eager") }}
             {{ end }}
           {{ end }}
           <span class="featured-label">{{ cond $isPT "Mais recente" "Latest" }}</span>

@@ -2,7 +2,7 @@
   {{ with .Params.cover }}
     {{ with $.Resources.GetMatch . }}
       <a class="thumb" href="{{ $.RelPermalink }}" aria-label="{{ $.Title }}">
-        <img src="{{ .RelPermalink }}" alt="{{ $.Params.cover_alt | default "" }}" loading="lazy">
+        {{ partial "responsive-image.html" (dict "Resource" . "Alt" ($.Params.cover_alt | default "")) }}
       </a>
     {{ end }}
   {{ end }}
