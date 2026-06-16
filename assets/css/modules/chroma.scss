@@ -1,0 +1,97 @@
+/* Chroma token styles, adapted from Hugo's github theme for this site's palette. */
+.chroma {
+  color: var(--code-text);
+  background: var(--code-bg);
+  -webkit-text-size-adjust: none;
+}
+
+.chroma .err { color: var(--code-error); background-color: var(--code-error-bg); }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; }
+.chroma .hl { background-color: var(--code-line-highlight); }
+.chroma .lnt,
+.chroma .ln {
+  color: var(--code-line-number);
+  margin-right: 0.75rem;
+  padding: 0 0.75rem 0 0;
+  user-select: none;
+  white-space: pre;
+}
+
+.chroma .line { display: flex; }
+.chroma .cl { min-width: 0; }
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt { color: var(--code-keyword); }
+.chroma .na,
+.chroma .nc,
+.chroma .nx,
+.chroma .p,
+.chroma .ge,
+.chroma .go { color: var(--code-text); }
+.chroma .no,
+.chroma .nd,
+.chroma .nt,
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo,
+.chroma .o,
+.chroma .ow,
+.chroma .or { color: var(--code-constant); }
+.chroma .ni,
+.chroma .nb,
+.chroma .nf,
+.chroma .fm { color: var(--code-function); }
+.chroma .nl { color: var(--code-label); font-weight: 700; }
+.chroma .nn { color: var(--code-namespace); }
+.chroma .bp,
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf { color: var(--code-comment); }
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm { color: var(--code-variable); }
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .se,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss { color: var(--code-string); }
+.chroma .gd { color: var(--code-deleted); background-color: var(--code-deleted-bg); }
+.chroma .gi { color: var(--code-inserted); background-color: var(--code-inserted-bg); }
+.chroma .gl { text-decoration: underline; }
+.chroma .w { color: inherit; }
+
+@media (prefers-color-scheme: dark) {
+  .chroma .ge,
+  .chroma .go,
+  .chroma .na,
+  .chroma .nc,
+  .chroma .nx,
+  .chroma .p {
+    color: var(--code-text);
+  }
+}
