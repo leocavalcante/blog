@@ -528,6 +528,14 @@ h1 {
   color: var(--accent);
 }
 
+.related-posts {
+  margin-top: 64px;
+}
+
+.related-posts .post-card {
+  padding: 18px 0;
+}
+
 .content blockquote {
   margin-inline: 0;
   padding-left: 18px;

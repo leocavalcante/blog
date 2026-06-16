@@ -62,5 +62,17 @@
         </a>
       {{ end }}
     </nav>
+
+    {{ $related := site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+      <section class="related-posts">
+        <h3 class="section-heading">{{ cond $isPT "Posts relacionados" "Related Posts" }}</h3>
+        <div class="post-list">
+          {{ range . }}
+            {{ partial "post-card.html" . }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   </article>
 {{ end }}
