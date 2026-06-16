@@ -1,0 +1,91 @@
+/* Navigation */
+.brand {
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  background: var(--text);
+  color: var(--bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.site-nav a { text-decoration: none; }
+.site-nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
+
+/* Cards */
+.post-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateX(4px);
+}
+
+.post-card h2 { font-size: 1.5rem; margin: 8px 0; }
+.post-card h2 a { text-decoration: none; }
+.post-card p { color: var(--muted); margin: 0; }
+
+.thumb img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: var(--code-bg);
+}
+
+/* Metadata */
+.card-meta, .post-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.button:hover { opacity: 0.9; }
+
+/* Progress Bar */
+#progress-bar {
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+@media (max-width: 760px) {
+  .post-card { grid-template-columns: 1fr; gap: 16px; }
+  .site-nav { width: 100%; overflow-x: auto; padding-bottom: 10px; }
+}
