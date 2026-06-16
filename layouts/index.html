@@ -26,7 +26,6 @@
   <section class="wrap section-block">
     <div class="section-heading">
       <h2>{{ cond $isPT "Posts recentes" "Recent Posts" }}</h2>
-      <a href="{{ "posts/" | relLangURL }}">{{ cond $isPT "Ver arquivo" "View archive" }}</a>
     </div>
     {{ $posts := first 8 (where site.RegularPages "Section" "posts") }}
     {{ if $posts }}
@@ -34,6 +33,11 @@
         {{ range $posts }}
           {{ partial "post-card.html" . }}
         {{ end }}
+      </div>
+      <div class="section-footer">
+        <a href="{{ "posts/" | relLangURL }}" class="more-link">
+          {{ cond $isPT "Ver todos os posts" "View all posts" }} →
+        </a>
       </div>
     {{ else }}
       <p class="empty-state">{{ cond $isPT "Nenhum post publicado ainda." "No posts published yet." }}</p>
