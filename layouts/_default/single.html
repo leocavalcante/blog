@@ -2,7 +2,13 @@
   {{ $isPT := eq site.Language.Lang "pt-br" }}
   <article class="wrap post">
     <header class="post-header">
-      {{ if not .Date.IsZero }}<p class="eyebrow">{{ .Date.Format "Jan 2, 2006" }}</p>{{ end }}
+      {{ if not .Date.IsZero }}
+        <div class="eyebrow">
+          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <span>·</span>
+          <span>{{ .ReadingTime }} {{ cond $isPT "min de leitura" "min read" }}</span>
+        </div>
+      {{ end }}
       <h1>{{ .Title }}</h1>
       {{ with .Params.description }}<p class="dek">{{ . }}</p>{{ end }}
       {{ if or .Params.updated .Params.tags }}
