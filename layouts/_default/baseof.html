@@ -26,7 +26,10 @@
           {{ if gt (len .AllTranslations) 1 }}
             <span class="language-nav" aria-label="{{ cond $isPT "Idiomas" "Languages" }}">
               {{ range .AllTranslations }}
-                <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" {{ if eq .Language.Lang site.Language.Lang }}aria-current="true"{{ end }}>{{ upper .Language.Lang }}</a>
+                <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" {{ if eq .Language.Lang site.Language.Lang }}aria-current="true"{{ end }}>
+                  {{ if eq .Language.Lang "pt-br" }}🇧🇷{{ else if eq .Language.Lang "en" }}🇺🇸{{ end }}
+                  {{ upper .Language.Lang }}
+                </a>
               {{ end }}
             </span>
           {{ end }}
