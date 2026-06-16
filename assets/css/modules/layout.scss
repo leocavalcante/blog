@@ -1,5 +1,6 @@
 .wrap {
-  width: min(100% - 40px, 1080px);
+  width: calc(100% - 40px);
+  max-width: 1080px;
   margin-inline: auto;
 }
 
