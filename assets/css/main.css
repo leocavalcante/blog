@@ -332,6 +332,40 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.toc summary {
+  font-weight: 760;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.toc nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc nav ul ul {
+  padding-left: 16px;
+}
+
+.toc a {
+  text-decoration: none;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.toc a:hover {
+  color: var(--accent);
+}
+
 .content > * + * {
   margin-top: 1.1em;
 }

@@ -37,6 +37,14 @@
     {{ end }}
 
     <div class="content">
+      {{ if .Params.toc | default true }}
+        <aside class="toc">
+          <details open>
+            <summary>{{ cond $isPT "Sumário" "Table of Contents" }}</summary>
+            {{ .TableOfContents }}
+          </details>
+        </aside>
+      {{ end }}
       {{ .Content }}
     </div>
   </article>
