@@ -565,6 +565,16 @@ h1 {
   margin: 0;
 }
 
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
 .pagination {
   display: flex;
   gap: 8px;
