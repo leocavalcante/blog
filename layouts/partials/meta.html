@@ -1,0 +1,35 @@
+{{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+{{ $description := .Params.description | default .Summary | default site.Params.description }}
+{{ $canonical := .Permalink }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $canonical }}">
+{{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ if eq .Language.Lang "pt-br" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}
+{{ end }}
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+{{ with .Params.cover }}
+  {{ with $.Resources.GetMatch . }}
+    <meta property="og:image" content="{{ .Permalink }}">
+    <meta name="twitter:image" content="{{ .Permalink }}">
+  {{ end }}
+{{ else }}
+  {{ with site.Params.images }}
+    {{ with index . 0 }}
+      <meta property="og:image" content="{{ . | absURL }}">
+      <meta name="twitter:image" content="{{ . | absURL }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+{{ if and (not .Date.IsZero) (not .IsHome) }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+{{ with .Params.updated }}
+  <meta property="article:modified_time" content="{{ . }}">
+{{ end }}

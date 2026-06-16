@@ -1,0 +1,18 @@
+<article class="post-card">
+  {{ with .Params.cover }}
+    {{ with $.Resources.GetMatch . }}
+      <a class="thumb" href="{{ $.RelPermalink }}" aria-label="{{ $.Title }}">
+        <img src="{{ .RelPermalink }}" alt="{{ $.Params.cover_alt | default "" }}" loading="lazy">
+      </a>
+    {{ end }}
+  {{ end }}
+  <div>
+    <div class="card-meta">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      {{ with .Params.tags }}<span>{{ delimit (first 3 .) ", " }}</span>{{ end }}
+    </div>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+  </div>
+</article>
+

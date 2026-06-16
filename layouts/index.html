@@ -1,0 +1,42 @@
+{{ define "main" }}
+  {{ $isPT := eq site.Language.Lang "pt-br" }}
+  <section class="home-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Developer Experience @ PicPay</p>
+        <h1>{{ .Title }}</h1>
+        <p class="hero-copy">{{ .Params.description }}</p>
+      </div>
+      {{ $latest := first 1 (where site.RegularPages "Section" "posts") }}
+      {{ with index $latest 0 }}
+        <a class="featured" href="{{ .RelPermalink }}">
+          {{ with .Params.cover }}
+            {{ with $.Resources.GetMatch . }}
+              <img src="{{ .RelPermalink }}" alt="{{ $.Params.cover_alt | default "" }}">
+            {{ end }}
+          {{ end }}
+          <span class="featured-label">{{ cond $isPT "Mais recente" "Latest" }}</span>
+          <strong>{{ .Title }}</strong>
+          <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="wrap section-block">
+    <div class="section-heading">
+      <h2>{{ cond $isPT "Posts recentes" "Recent Posts" }}</h2>
+      <a href="{{ "posts/" | relLangURL }}">{{ cond $isPT "Ver arquivo" "View archive" }}</a>
+    </div>
+    {{ $posts := first 8 (where site.RegularPages "Section" "posts") }}
+    {{ if $posts }}
+      <div class="post-list">
+        {{ range $posts }}
+          {{ partial "post-card.html" . }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="empty-state">{{ cond $isPT "Nenhum post publicado ainda." "No posts published yet." }}</p>
+    {{ end }}
+  </section>
+{{ end }}

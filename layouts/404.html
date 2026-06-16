@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ $isPT := eq site.Language.Lang "pt-br" }}
+  <section class="wrap not-found">
+    <p class="eyebrow">404</p>
+    <h1>{{ cond $isPT "Página não encontrada" "Page not found" }}</h1>
+    <p>{{ cond $isPT "A página pode ter mudado durante a migração." "The page may have moved during the migration." }}</p>
+    <a class="button" href="{{ site.Home.RelPermalink }}">{{ cond $isPT "Voltar ao início" "Go home" }}</a>
+  </section>
+{{ end }}

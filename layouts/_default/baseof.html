@@ -1,0 +1,45 @@
+{{ $isPT := eq site.Language.Lang "pt-br" }}
+<!doctype html>
+<html lang="{{ site.Language.Locale | default site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial "meta.html" . }}
+    {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{{ cond $isPT "Pular para o conteúdo" "Skip to content" }}</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}">
+          <span class="brand-mark">LC</span>
+          <span>{{ site.Title }}</span>
+        </a>
+        <nav class="site-nav" aria-label="{{ cond $isPT "Principal" "Primary" }}">
+          <a href="{{ site.Home.RelPermalink }}">{{ cond $isPT "Início" "Home" }}</a>
+          <a href="{{ "posts/" | relLangURL }}">{{ cond $isPT "Arquivo" "Archive" }}</a>
+          {{ with site.GetPage "livros" }}<a href="{{ .RelPermalink }}">{{ cond $isPT "Livros" "Books" }}</a>{{ end }}
+          <a href="{{ "tags/" | relLangURL }}">Tags</a>
+          <a href="{{ "index.xml" | relLangURL }}">RSS</a>
+          {{ if gt (len .AllTranslations) 1 }}
+            <span class="language-nav" aria-label="{{ cond $isPT "Idiomas" "Languages" }}">
+              {{ range .AllTranslations }}
+                <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" {{ if eq .Language.Lang site.Language.Lang }}aria-current="true"{{ end }}>{{ upper .Language.Lang }}</a>
+              {{ end }}
+            </span>
+          {{ end }}
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>{{ site.Copyright }}</p>
+        <p><a href="{{ "sitemap.xml" | relLangURL }}">Sitemap</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

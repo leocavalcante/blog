@@ -1,0 +1,81 @@
+baseURL: https://leocavalcante.dev/
+title: Leo Cavalcante
+copyright: "Copyright (c) 2026 Leo Cavalcante"
+enableRobotsTXT: true
+summaryLength: 28
+timeZone: America/Sao_Paulo
+defaultContentLanguage: pt-br
+defaultContentLanguageInSubdir: false
+
+languages:
+  pt-br:
+    locale: pt-BR
+    label: Português
+    weight: 1
+    title: Leo Cavalcante
+    params:
+      description: Anotações pessoais sobre engenharia de software, developer experience, Go, PHP, infraestrutura e IA.
+  en:
+    locale: en
+    label: English
+    weight: 2
+    title: Leo Cavalcante
+    params:
+      description: Personal notes on software engineering, developer experience, Go, PHP, infrastructure, and AI.
+
+pagination:
+  pagerSize: 10
+
+permalinks:
+  posts: /:slug/
+
+taxonomies:
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
+
+caches:
+  images:
+    dir: :cacheDir/images
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    style: github
+
+params:
+  author: Leo Cavalcante
+  description: Anotações pessoais sobre engenharia de software, developer experience, Go, PHP, infraestrutura e IA.
+  mainSections:
+    - posts
+  images:
+    - /site-card.png
+
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: true
+  instagram:
+    disable: true
+  x:
+    disable: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: true

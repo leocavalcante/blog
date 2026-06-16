@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ $isPT := eq site.Language.Lang "pt-br" }}
+  <section class="wrap page-header">
+    <p class="eyebrow">{{ .Kind | title }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </section>
+
+  <section class="wrap section-block">
+    {{ if eq .Kind "taxonomy" }}
+      <div class="tag-cloud">
+        {{ range .Pages.ByTitle }}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }} <span>{{ len .Pages }}</span></a>
+        {{ end }}
+      </div>
+    {{ else }}
+      {{ $pages := .Pages }}
+      {{ if .IsSection }}{{ $pages = where .Site.RegularPages "Section" .Section }}{{ end }}
+      {{ if $pages }}
+        <div class="post-list">
+          {{ range (.Paginate $pages).Pages }}
+            {{ partial "post-card.html" . }}
+          {{ end }}
+        </div>
+        {{ template "_internal/pagination.html" . }}
+      {{ else }}
+        <p class="empty-state">{{ cond $isPT "Nada publicado aqui ainda." "Nothing published here yet." }}</p>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}

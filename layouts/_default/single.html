@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $isPT := eq site.Language.Lang "pt-br" }}
+  <article class="wrap post">
+    <header class="post-header">
+      {{ if not .Date.IsZero }}<p class="eyebrow">{{ .Date.Format "Jan 2, 2006" }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="dek">{{ . }}</p>{{ end }}
+      {{ if or .Params.updated .Params.tags }}
+        <div class="post-meta">
+          {{ with .Params.updated }}<span>{{ cond $isPT "Atualizado em" "Updated" }} {{ time . | time.Format "Jan 2, 2006" }}</span>{{ end }}
+          {{ with .Params.tags }}
+            <span>
+              {{ range $index, $tag := . }}{{ if $index }}, {{ end }}<a href="{{ printf "tags/%s/" ($tag | urlize) | relLangURL }}">{{ $tag }}</a>{{ end }}
+            </span>
+          {{ end }}
+        </div>
+      {{ end }}
+    </header>
+
+    {{ with .Params.cover }}
+      {{ with $.Resources.GetMatch . }}
+        <figure class="cover">
+          <img src="{{ .RelPermalink }}" alt="{{ $.Params.cover_alt | default "" }}">
+          {{ if or $.Params.cover_credit_name $.Params.cover_credit_url }}
+            <figcaption>
+              {{ with $.Params.cover_credit_url }}<a href="{{ . }}" rel="noopener noreferrer">{{ $.Params.cover_credit_name | default "Image source" }}</a>{{ else }}{{ $.Params.cover_credit_name }}{{ end }}
+            </figcaption>
+          {{ end }}
+        </figure>
+      {{ end }}
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
