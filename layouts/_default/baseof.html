@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ partial "meta.html" . }}
     {{ partial "jsonld.html" . }}
-    {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+    {{ $options := dict "targetPath" "css/main.css" "enableSourceMap" true }}
+    {{ $css := resources.Get "css/main.css" | toCSS $options | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   </head>
   <body>
