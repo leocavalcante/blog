@@ -47,5 +47,20 @@
       {{ end }}
       {{ .Content }}
     </div>
+
+    <nav class="post-nav">
+      {{ with .PrevInSection }}
+        <a class="prev" href="{{ .RelPermalink }}">
+          <span>← {{ cond $isPT "Anterior" "Previous" }}</span>
+          <strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+      {{ with .NextInSection }}
+        <a class="next" href="{{ .RelPermalink }}">
+          <span>{{ cond $isPT "Próximo" "Next" }} →</span>
+          <strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+    </nav>
   </article>
 {{ end }}
