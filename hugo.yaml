@@ -70,7 +70,7 @@ privacy:
   disqus:
     disable: true
   googleAnalytics:
-    disable: true
+    disable: false
   instagram:
     disable: true
   x:
