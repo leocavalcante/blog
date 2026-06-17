@@ -11,10 +11,10 @@ tags:
     - async
     - architecture
 url: /archive/medium/build-a-graphql-api-on-top-of-swoole-5de5d71b6e12/
-cover: ""
-cover_alt: ""
-cover_credit_name: ""
-cover_credit_url: ""
+cover: cover.jpg
+cover_alt: "Network connection, big data visualisation. Abstract digital background."
+cover_credit_name: Getty Images
+cover_credit_url: https://unsplash.com/@gettyimages
 ---
 
 Estou assumindo que você já sabe o que são [GraphQL](https://graphql.org/) e [Swoole](https://www.swoole.co.uk), então que tal irmos direto para o código?
