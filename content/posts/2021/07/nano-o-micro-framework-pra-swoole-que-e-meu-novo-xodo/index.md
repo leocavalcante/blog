@@ -11,10 +11,10 @@ tags:
     - async
     - coroutines
 url: /nano-o-micro-framework-pra-swoole-que-e-meu-novo-xodo/
-cover: ""
-cover_alt: ""
-cover_credit_name: ""
-cover_credit_url: ""
+cover: cover.jpg
+cover_alt: "Abstract 3D render background with glowing light line in minimal design."
+cover_credit_name: Getty Images
+cover_credit_url: https://unsplash.com/@gettyimages
 ---
 
 Inspirado no [artigo sobre Hyperf](https://leocarmo.dev/hyperf-php-coroutine-framework-baseado-em-swoole) do grade @[Leonardo do Carmo](@leocarmo) (e também na dica dele sobre a hashnode hehe) resolvi passar por aqui e escrever sobre o  [Nano](https://nano.hyperf.wiki/), o micro-framework pra Swoole da galera do Hyperf.
