@@ -16,6 +16,7 @@ Defaults:
   DRIVE_FOLDER_NAME LC
   BUNDLE_NAME       blog.bundle
   BUNDLE_PATH       $PWD/$BUNDLE_NAME
+  CLEANUP_ARTIFACTS 1
 
 Examples:
   scripts/upload-recent-bundle.sh
@@ -25,6 +26,7 @@ Examples:
 With no argument, bundles every commit reachable from HEAD that is not in
 origin/main. Set BASE_REF to compare against another branch.
 Set ALLOW_DIRTY=1 to bundle commits even when the working tree has local changes.
+Set CLEANUP_ARTIFACTS=0 to keep local *.bundle and zoneinfo* files.
 USAGE
 }
 
@@ -69,6 +71,22 @@ bundle_name="${BUNDLE_NAME:-blog.bundle}"
 bundle_path="${BUNDLE_PATH:-${invocation_dir}/${bundle_name}}"
 base_ref="${BASE_REF:-origin/main}"
 commit_spec="${1:-}"
+cleanup_artifacts="${CLEANUP_ARTIFACTS:-1}"
+
+cleanup_generated_artifacts() {
+  [[ "$cleanup_artifacts" == "1" ]] || return 0
+
+  local nullglob_was_set=0
+  shopt -q nullglob || nullglob_was_set=1
+  shopt -s nullglob
+
+  local artifact
+  for artifact in "${invocation_dir}"/*.bundle "${invocation_dir}"/zoneinfo*; do
+    [[ -f "$artifact" ]] && rm -f -- "$artifact"
+  done
+
+  [[ "$nullglob_was_set" -eq 0 ]] || shopt -u nullglob
+}
 
 if [[ "${ALLOW_DIRTY:-0}" != "1" ]]; then
   git diff --quiet --ignore-submodules -- || die "working tree has unstaged changes; commit/stash them or set ALLOW_DIRTY=1"
@@ -90,7 +108,11 @@ commit_count="$(git rev-list --count "$commit_range")"
 
 mkdir -p "$(dirname "$bundle_path")"
 tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/blog-bundle-upload.XXXXXX")"
-trap 'rm -rf "$tmp_dir"' EXIT
+cleanup() {
+  rm -rf "$tmp_dir"
+  cleanup_generated_artifacts
+}
+trap cleanup EXIT
 tmp_bundle="${tmp_dir}/${bundle_name}"
 
 git bundle create "$tmp_bundle" "$commit_range" >/dev/null

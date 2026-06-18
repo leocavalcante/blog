@@ -15,6 +15,7 @@ Defaults:
   BUNDLE_NAME       blog.bundle
   BUNDLE_PATH       $PWD/$BUNDLE_NAME
   APPLY_MODE        ff-only
+  CLEANUP_ARTIFACTS 1
 
 Optional:
   IMPORT_REF=refs/heads/from-blog-bundle scripts/download-bundle.sh
@@ -23,6 +24,7 @@ Optional:
 By default, the script fetches the bundle HEAD and runs git merge --ff-only.
 Set IMPORT_REF to fetch the bundle HEAD into that ref instead of updating the
 current branch. Set APPLY_MODE=none to only verify and unbundle objects.
+Set CLEANUP_ARTIFACTS=0 to keep local *.bundle and zoneinfo* files.
 USAGE
 }
 
@@ -66,6 +68,24 @@ folder_name="${DRIVE_FOLDER_NAME:-LC}"
 bundle_name="${BUNDLE_NAME:-blog.bundle}"
 bundle_path="${BUNDLE_PATH:-${invocation_dir}/${bundle_name}}"
 apply_mode="${APPLY_MODE:-ff-only}"
+cleanup_artifacts="${CLEANUP_ARTIFACTS:-1}"
+
+cleanup_generated_artifacts() {
+  [[ "$cleanup_artifacts" == "1" ]] || return 0
+
+  local nullglob_was_set=0
+  shopt -q nullglob || nullglob_was_set=1
+  shopt -s nullglob
+
+  local artifact
+  for artifact in "${invocation_dir}"/*.bundle "${invocation_dir}"/zoneinfo*; do
+    [[ -f "$artifact" ]] && rm -f -- "$artifact"
+  done
+
+  [[ "$nullglob_was_set" -eq 0 ]] || shopt -u nullglob
+}
+
+trap cleanup_generated_artifacts EXIT
 
 mkdir -p "$(dirname "$bundle_path")"
 
