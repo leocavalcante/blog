@@ -23,7 +23,7 @@ If you follow my posts on [Agent Harness](/en/por-que-sua-ia-falha-o-segredo-n-o
 
 ## The "Vibes-Driven Development" problem
 
-Hamel Husain, one of the most respected voices in AI Engineering, put it bluntly:
+[Hamel Husain](https://hamel.dev/blog/posts/evals/), one of the most respected voices in AI Engineering, put it bluntly:
 
 > "I've found that unsuccessful products almost always share a common root cause: a failure to create robust evaluation systems."
 
@@ -57,16 +57,16 @@ When I wrote about the [Agent Harness](/en/por-que-sua-ia-falha-o-segredo-n-o-es
 
 The most obvious layer, but also the most treacherous when used alone. You define a task with clear success criteria, run the agent, and verify whether the final state is correct.
 
-The catch is that "correct" for an agent means more than a nice-looking text response. If your agent was supposed to schedule a meeting, the grader cannot just read the confirmation message, it needs to verify that the event _actually_ appeared on the calendar, on the right date, with the right participants. Anthropic calls this **state verification**: checking the real world, not the agent's narrative.
+The catch is that "correct" for an agent means more than a nice-looking text response. If your agent was supposed to schedule a meeting, the grader cannot just read the confirmation message, it needs to verify that the event _actually_ appeared on the calendar, on the right date, with the right participants. In practice, this is **state-based evaluation**: checking the real world, not the agent's narrative.
 
 Key metrics in this layer:
 
 - **Task Success Rate**: percentage of tasks completed correctly.
 - **Grounding/Faithfulness**: are the responses faithful to retrieved data, or did the agent make things up?
 - **pass@k**: the probability that _at least one_ of _k_ attempts is correct. Useful for measuring raw capability.
-- **pass^k**: the probability of success within _k_ sequential attempts, stopping at the first correct one. Models the real user experience.
+- **retry@k**: success rate within _k_ sequential attempts, stopping at the first correct one. Models the real user experience and the expected cost per success.
 
-The gap between pass@1 (single-shot) and pass@k reveals the agent's _reliability_. An agent with 40% pass@1 but 90% pass@5 is capable but inconsistent. You want to invest in making it more deterministic, not more intelligent.
+The gap between pass@1 (single-shot), pass@k, and retry@k reveals the agent's _reliability_. An agent with 40% pass@1 but 90% pass@5 is capable but inconsistent. You want to invest in making it more deterministic, not just more intelligent.
 
 ### 2. Trajectory: "How did it get there?"
 
@@ -120,7 +120,7 @@ It is scalable, consistent, and surprisingly aligned with human judgment when we
 | Cheaper than human evaluation | Risk of _gaming_: agents optimized to please the judge |
 | Flexible for custom rubrics | Requires periodic calibration with humans |
 
-Anthropic's recommendation is to use a **hybrid** approach: deterministic graders (code) for objective checks (was the event created? was the file saved?) and LLM-as-Judge for subjective dimensions (was the response clear? was the tone appropriate?). Always with periodic human calibration to ensure the judge is still aligned with reality.
+A more robust approach is **hybrid**: deterministic graders (code) for objective checks (was the event created? was the file saved?) and LLM-as-Judge for subjective dimensions (was the response clear? was the tone appropriate?). Always with periodic human calibration to ensure the judge is still aligned with reality.
 
 ## Tooling: where to start
 
@@ -133,7 +133,7 @@ The evaluation tooling ecosystem has matured significantly. Here is a pragmatic 
 [Langfuse](https://langfuse.com) is open-source and self-hostable. Excellent for those who need data sovereignty and want to visualize agent traces with dashboards. The metric depth is less than DeepEval, but the combination of both is powerful.
 
 **For the complete cycle (eval + monitoring + collaboration):**
-[Braintrust](https://braintrust.dev) offers a generous free tier (1M spans/month) and covers everything from pre-deploy evaluation to production monitoring, with automatic root cause detection in agent traces.
+[Braintrust](https://braintrust.dev) offers a free starter plan and covers everything from pre-deploy evaluation to production monitoring, with workflows for observability, datasets, experiments, and failure investigation in traces.
 
 **In practice, mature teams combine at least two:**
 - DeepEval for offline evals in CI + Langfuse for production observability.
@@ -160,7 +160,7 @@ For each case, define a grader. Start simple:
 
 ### Step 3: Run with repetition
 
-Remember: agents are stochastic. Run each case at least 3 to 5 times. Record pass@1 and pass@k. The variance between runs is a signal just as important as the average.
+Remember: agents are stochastic. Run each case at least 3 to 5 times. Record pass@1, pass@k, and retry@k when you have a retry policy. The variance between runs is a signal just as important as the average.
 
 ### Step 4: Preserve traces
 
@@ -176,9 +176,7 @@ Pre-deploy evals do not replace observability. Instrument cost logs, latency, su
 
 ## The discipline that separates demos from products
 
-There is a quote from Hamel Husain that sums it all up:
-
-> "Like software engineering, success with AI hinges on how fast you can iterate. And you don't iterate fast without evals."
+Hamel Husain keeps pointing at the same idea: in AI Engineering, success depends on shortening the iteration loop. The practical point is direct: you do not iterate quickly without evals.
 
 Building agents is exciting. Making demos that impress is easy. But putting an agent into production and _knowing_ that it is reliable, efficient, and safe? That requires the same discipline that software engineering took decades to develop with automated testing.
 

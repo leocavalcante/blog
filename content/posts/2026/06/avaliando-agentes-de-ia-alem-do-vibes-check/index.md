@@ -23,7 +23,7 @@ Se você acompanha meus posts sobre [Agent Harness](/por-que-sua-ia-falha-o-segr
 
 ## O problema do "Vibes-Driven Development"
 
-Hamel Husain, uma das vozes mais respeitadas em AI Engineering, colocou de forma direta:
+[Hamel Husain](https://hamel.dev/blog/posts/evals/), uma das vozes mais respeitadas em AI Engineering, colocou de forma direta:
 
 > "Produtos de IA que fracassam quase sempre compartilham uma causa raiz: a falha em criar sistemas de avaliação robustos."
 
@@ -57,16 +57,16 @@ Quando falei sobre o [Agent Harness](/por-que-sua-ia-falha-o-segredo-n-o-est-no-
 
 É a camada mais óbvia, mas também a mais traiçoeira se usada sozinha. Você define uma tarefa com critérios claros de sucesso, executa o agente, e verifica se o estado final está correto.
 
-A pegadinha é que "correto" para um agente significa mais do que uma resposta textual bonita. Se seu agente deveria agendar uma reunião, o grader não pode apenas ler a mensagem de confirmação, ele precisa verificar se o evento _de fato_ apareceu no calendário, na data certa, com os participantes certos. A Anthropic chama isso de **verificação de estado**: checar o mundo real, não a narrativa do agente.
+A pegadinha é que "correto" para um agente significa mais do que uma resposta textual bonita. Se seu agente deveria agendar uma reunião, o grader não pode apenas ler a mensagem de confirmação, ele precisa verificar se o evento _de fato_ apareceu no calendário, na data certa, com os participantes certos. Na prática, isso é **avaliação baseada em estado**: checar o mundo real, não a narrativa do agente.
 
 Métricas-chave nessa camada:
 
 - **Task Success Rate**: percentual de tarefas completadas corretamente.
 - **Grounding/Faithfulness**: as respostas são fiéis aos dados recuperados ou o agente inventou?
 - **pass@k**: a probabilidade de que _pelo menos uma_ entre _k_ tentativas esteja correta. Útil para medir a capacidade bruta.
-- **pass^k**: a probabilidade de sucesso em até _k_ tentativas sequenciais, parando na primeira correta. Modela a experiência real do usuário.
+- **retry@k**: taxa de sucesso em até _k_ tentativas sequenciais, parando na primeira correta. Modela a experiência real do usuário e o custo esperado por sucesso.
 
-A diferença entre pass@1 (single-shot) e pass@k revela a _confiabilidade_ do agente. Um agente com pass@1 de 40% mas pass@5 de 90% é capaz, mas inconsistente. Você quer investir em torná-lo mais determinístico, não mais inteligente.
+A diferença entre pass@1 (single-shot), pass@k e retry@k revela a _confiabilidade_ do agente. Um agente com pass@1 de 40% mas pass@5 de 90% é capaz, mas inconsistente. Você quer investir em torná-lo mais determinístico, não apenas mais inteligente.
 
 ### 2. Trajetória (Trajectory): "Como chegou lá?"
 
@@ -120,7 +120,7 @@ O padrão funciona assim:
 | Custo menor que avaliação humana | Risco de _gaming_: agentes otimizados para agradar o juiz |
 | Flexível para rubrics customizados | Requer calibração periódica com humanos |
 
-A recomendação da Anthropic é usar uma abordagem **híbrida**: graders determinísticos (código) para verificações objetivas (o evento foi criado? o arquivo foi salvo?) e LLM-as-Judge para dimensões subjetivas (a resposta foi clara? o tom foi adequado?). Sempre com calibração humana periódica para garantir que o juiz ainda está alinhado com a realidade.
+Uma abordagem mais robusta é **híbrida**: graders determinísticos (código) para verificações objetivas (o evento foi criado? o arquivo foi salvo?) e LLM-as-Judge para dimensões subjetivas (a resposta foi clara? o tom foi adequado?). Sempre com calibração humana periódica para garantir que o juiz ainda está alinhado com a realidade.
 
 ## Ferramental: de onde começar
 
@@ -133,7 +133,7 @@ O ecossistema de ferramentas de avaliação amadureceu significativamente. Aqui 
 [Langfuse](https://langfuse.com) é open-source e self-hostable. Excelente para quem precisa de soberania de dados e quer visualizar traces de agentes com dashboards. A profundidade de métricas é menor que o DeepEval, mas a combinação dos dois é poderosa.
 
 **Para o ciclo completo (eval + monitoring + colaboração):**
-[Braintrust](https://braintrust.dev) oferece um free tier generoso (1M spans/mês) e cobre desde avaliação pré-deploy até monitoramento em produção, com detecção automática de causa de falha em traces de agentes.
+[Braintrust](https://braintrust.dev) oferece um plano inicial gratuito e cobre desde avaliação pré-deploy até monitoramento em produção, com workflows para observabilidade, datasets, experimentos e investigação de falhas em traces.
 
 **Na prática, times maduros combinam pelo menos dois:**
 - DeepEval para evals offline no CI + Langfuse para observabilidade em produção.
@@ -160,7 +160,7 @@ Para cada caso, defina um grader. Comece simples:
 
 ### Passo 3: Execute com repetição
 
-Lembre-se: agentes são estocásticos. Execute cada caso pelo menos 3 a 5 vezes. Registre pass@1 e pass@k. A variância entre execuções é um sinal tão importante quanto a média.
+Lembre-se: agentes são estocásticos. Execute cada caso pelo menos 3 a 5 vezes. Registre pass@1, pass@k e retry@k quando houver política de retry. A variância entre execuções é um sinal tão importante quanto a média.
 
 ### Passo 4: Preserve os traces
 
@@ -176,9 +176,7 @@ Evals pré-deploy não substituem observabilidade. Instrumente logs de custo, la
 
 ## A disciplina que separa demos de produtos
 
-Há uma frase do Hamel Husain que resume tudo:
-
-> "Assim como na engenharia de software, o sucesso com IA depende de quão rápido você consegue iterar. E você não itera rápido sem evals."
+Hamel Husain bate nessa tecla: em AI Engineering, o sucesso depende de encurtar o ciclo de iteração. O ponto prático é direto: você não itera rápido sem evals.
 
 Construir agentes é empolgante. Fazer demos que impressionam é fácil. Mas colocar um agente em produção e _saber_ que ele é confiável, eficiente e seguro? Isso exige a mesma disciplina que a engenharia de software levou décadas para desenvolver com testes automatizados.
 
