@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+invocation_dir="$(pwd)"
 cd "$(git rev-parse --show-toplevel)"
 
 usage() {
@@ -12,7 +13,7 @@ Downloads a git bundle from Google Drive and unbundles it into the local repo.
 Defaults:
   DRIVE_FOLDER_NAME LC
   BUNDLE_NAME       blog.bundle
-  BUNDLE_PATH       /private/tmp/$BUNDLE_NAME
+  BUNDLE_PATH       $PWD/$BUNDLE_NAME
 
 Optional:
   IMPORT_REF=refs/heads/from-blog-bundle scripts/download-bundle.sh
@@ -60,7 +61,7 @@ require jq
 
 folder_name="${DRIVE_FOLDER_NAME:-LC}"
 bundle_name="${BUNDLE_NAME:-blog.bundle}"
-bundle_path="${BUNDLE_PATH:-/private/tmp/${bundle_name}}"
+bundle_path="${BUNDLE_PATH:-${invocation_dir}/${bundle_name}}"
 
 mkdir -p "$(dirname "$bundle_path")"
 

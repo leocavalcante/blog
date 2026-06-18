@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+invocation_dir="$(pwd)"
 cd "$(git rev-parse --show-toplevel)"
 
 usage() {
@@ -14,7 +15,7 @@ Defaults:
   BASE_REF          origin/main
   DRIVE_FOLDER_NAME LC
   BUNDLE_NAME       blog.bundle
-  BUNDLE_PATH       /private/tmp/$BUNDLE_NAME
+  BUNDLE_PATH       $PWD/$BUNDLE_NAME
 
 Examples:
   scripts/upload-recent-bundle.sh
@@ -65,7 +66,7 @@ require jq
 
 folder_name="${DRIVE_FOLDER_NAME:-LC}"
 bundle_name="${BUNDLE_NAME:-blog.bundle}"
-bundle_path="${BUNDLE_PATH:-/private/tmp/${bundle_name}}"
+bundle_path="${BUNDLE_PATH:-${invocation_dir}/${bundle_name}}"
 base_ref="${BASE_REF:-origin/main}"
 commit_spec="${1:-}"
 
