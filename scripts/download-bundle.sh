@@ -8,18 +8,21 @@ usage() {
   cat <<'USAGE'
 Usage: scripts/download-bundle.sh
 
-Downloads a git bundle from Google Drive and unbundles it into the local repo.
+Downloads a git bundle from Google Drive and fast-forwards the current branch.
 
 Defaults:
   DRIVE_FOLDER_NAME LC
   BUNDLE_NAME       blog.bundle
   BUNDLE_PATH       $PWD/$BUNDLE_NAME
+  APPLY_MODE        ff-only
 
 Optional:
   IMPORT_REF=refs/heads/from-blog-bundle scripts/download-bundle.sh
+  APPLY_MODE=none scripts/download-bundle.sh
 
-When IMPORT_REF is set, the script also fetches the bundle's HEAD into that ref.
-Without IMPORT_REF, it only verifies and unbundles the objects.
+By default, the script fetches the bundle HEAD and runs git merge --ff-only.
+Set IMPORT_REF to fetch the bundle HEAD into that ref instead of updating the
+current branch. Set APPLY_MODE=none to only verify and unbundle objects.
 USAGE
 }
 
@@ -62,6 +65,7 @@ require jq
 folder_name="${DRIVE_FOLDER_NAME:-LC}"
 bundle_name="${BUNDLE_NAME:-blog.bundle}"
 bundle_path="${BUNDLE_PATH:-${invocation_dir}/${bundle_name}}"
+apply_mode="${APPLY_MODE:-ff-only}"
 
 mkdir -p "$(dirname "$bundle_path")"
 
@@ -97,12 +101,30 @@ md5="$(local_md5 "$bundle_path")"
 [[ -z "$remote_md5" || -z "$md5" || "$remote_md5" == "$md5" ]] || die "downloaded md5 mismatch: local=$md5 remote=$remote_md5"
 
 git bundle verify "$bundle_path" >/dev/null
-git bundle unbundle "$bundle_path"
 
-if [[ -n "${IMPORT_REF:-}" ]]; then
-  git fetch "$bundle_path" "HEAD:${IMPORT_REF}"
-  echo "Imported bundle HEAD into ${IMPORT_REF}"
-fi
+case "$apply_mode" in
+  ff-only)
+    if [[ -n "${IMPORT_REF:-}" ]]; then
+      git fetch "$bundle_path" "HEAD:${IMPORT_REF}"
+      echo "Imported bundle HEAD into ${IMPORT_REF}"
+    else
+      current_branch="$(git symbolic-ref --quiet --short HEAD || true)"
+      [[ -n "$current_branch" ]] || die "not on a branch; set IMPORT_REF or APPLY_MODE=none"
+      git diff --quiet --ignore-submodules -- || die "working tree has unstaged changes; commit/stash them or set APPLY_MODE=none"
+      git diff --cached --quiet --ignore-submodules -- || die "working tree has staged changes; commit/stash them or set APPLY_MODE=none"
+      git fetch "$bundle_path" HEAD
+      git merge --ff-only FETCH_HEAD
+      echo "Fast-forwarded ${current_branch} to bundle HEAD"
+    fi
+    ;;
+  none)
+    git bundle unbundle "$bundle_path" >/dev/null
+    echo "Unbundled objects without updating a ref"
+    ;;
+  *)
+    die "unsupported APPLY_MODE: $apply_mode"
+    ;;
+esac
 
 echo "Downloaded bundle: ${bundle_path}"
 echo "Size: ${size}"
