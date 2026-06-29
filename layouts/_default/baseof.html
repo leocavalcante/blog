@@ -30,7 +30,7 @@
           <a href="{{ "posts/" | relLangURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>{{ cond $isPT "Arquivo" "Archive" }}</a>
           {{ with site.GetPage "livros" }}<a href="{{ .RelPermalink }}" {{ if eq .RelPermalink $.RelPermalink }}aria-current="page"{{ end }}>{{ cond $isPT "Livros" "Books" }}</a>{{ end }}
           <a href="{{ "tags/" | relLangURL }}" {{ if eq .Section "tags" }}aria-current="page"{{ end }}>Tags</a>
-          <a href="#search" id="search-toggle">{{ cond $isPT "Buscar" "Search" }}</a>
+          <a href="#search" id="search-toggle" aria-controls="search-overlay" aria-haspopup="dialog" aria-expanded="false">{{ cond $isPT "Buscar" "Search" }}</a>
           <a href="{{ "index.xml" | relLangURL }}">RSS</a>
           {{ if gt (len .AllTranslations) 1 }}
             <span class="language-nav" aria-label="{{ cond $isPT "Idiomas" "Languages" }}">
@@ -48,7 +48,7 @@
         <div id="progress-bar" style="width: 0; height: 3px; background: var(--accent); position: absolute; bottom: 0; left: 0; transition: width 0.1s; z-index: 10;"></div>
       {{ end }}
     </header>
-    <main id="main">
+    <main id="main" data-pagefind-body>
       {{ block "main" . }}{{ end }}
     </main>
     <footer class="site-footer">
@@ -71,6 +71,15 @@
         </div>
       </div>
     </footer>
+    <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-title" hidden data-pagefind-ignore>
+      <div class="search-panel" role="document">
+        <div class="search-header">
+          <h2 id="search-title">{{ cond $isPT "Buscar" "Search" }}</h2>
+          <button id="search-close" class="search-close" type="button" aria-label="{{ cond $isPT "Fechar busca" "Close search" }}">&times;</button>
+        </div>
+        <div id="search"></div>
+      </div>
+    </div>
     {{ if .IsPage }}
       <script>
         window.addEventListener('scroll', () => {
@@ -98,46 +107,99 @@
             });
           });
         });
-
+      </script>
+    {{ end }}
+    <script>
+      (() => {
         const searchToggle = document.getElementById('search-toggle');
         const searchOverlay = document.getElementById('search-overlay');
         const searchClose = document.getElementById('search-close');
+        const searchRoot = document.getElementById('search');
+        let searchLoading = false;
+        let searchReady = false;
 
-        if (searchToggle && searchOverlay && searchClose) {
-          searchToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            searchOverlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            if (!window.pagefind) {
-              const script = document.createElement('script');
-              script.src = '/pagefind/pagefind-ui.js';
-              script.onload = () => {
-                new PagefindUI({ element: "#search", showSubResults: true });
-              };
-              document.head.appendChild(script);
-
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = '/pagefind/pagefind-ui.css';
-              document.head.appendChild(link);
-              window.pagefind = true;
-            }
-          });
-
-          searchClose.addEventListener('click', () => {
-            searchOverlay.style.display = 'none';
-            document.body.style.overflow = '';
-          });
-
-          window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-              searchOverlay.style.display = 'none';
-              document.body.style.overflow = '';
-            }
-          });
+        if (!searchToggle || !searchOverlay || !searchClose || !searchRoot) {
+          return;
         }
-      </script>
-    {{ end }}
+
+        const focusSearchInput = () => {
+          const input = searchOverlay.querySelector('.pagefind-ui__search-input');
+          if (input) {
+            input.focus();
+          }
+        };
+
+        const loadSearch = () => {
+          if (searchReady) {
+            focusSearchInput();
+            return;
+          }
+
+          if (searchLoading) {
+            return;
+          }
+
+          searchLoading = true;
+
+          if (!document.getElementById('pagefind-ui-css')) {
+            const link = document.createElement('link');
+            link.id = 'pagefind-ui-css';
+            link.rel = 'stylesheet';
+            link.href = '{{ "pagefind/pagefind-ui.css" | relURL }}';
+            document.head.appendChild(link);
+          }
+
+          const script = document.createElement('script');
+          script.src = '{{ "pagefind/pagefind-ui.js" | relURL }}';
+          script.onload = () => {
+            new PagefindUI({
+              element: '#search',
+              showSubResults: true
+            });
+            searchReady = true;
+            searchLoading = false;
+            window.setTimeout(focusSearchInput, 0);
+          };
+          script.onerror = () => {
+            searchLoading = false;
+            searchRoot.innerHTML = '<p class="search-error">{{ cond $isPT "A busca não pôde ser carregada." "Search could not be loaded." }}</p>';
+          };
+          document.head.appendChild(script);
+        };
+
+        const openSearch = () => {
+          searchOverlay.hidden = false;
+          searchToggle.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+          loadSearch();
+        };
+
+        const closeSearch = () => {
+          searchOverlay.hidden = true;
+          searchToggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          searchToggle.focus();
+        };
+
+        searchToggle.addEventListener('click', (event) => {
+          event.preventDefault();
+          openSearch();
+        });
+
+        searchClose.addEventListener('click', closeSearch);
+
+        searchOverlay.addEventListener('click', (event) => {
+          if (event.target === searchOverlay) {
+            closeSearch();
+          }
+        });
+
+        window.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !searchOverlay.hidden) {
+            closeSearch();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
