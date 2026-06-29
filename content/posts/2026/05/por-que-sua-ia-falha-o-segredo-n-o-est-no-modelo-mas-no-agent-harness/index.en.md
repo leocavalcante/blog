@@ -1,7 +1,7 @@
 ---
 title: Why Does Your AI Fail? The Secret Is Not in the Model, But in the "Agent Harness"
 description: 'You have probably experienced this: one moment, GPT or Claude solves a complex coding problem in seconds; the next, the same AI forgets basic context or invents nonexistent information.'
-date: "2026-05-04T10:00:00-03:00"
+date: "2026-05-04T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

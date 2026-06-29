@@ -3,7 +3,7 @@ title: DORA, SPACE, and the Science of Performance in the Age of Agility and AI
 description: |-
     The paradox of modern speed
     We live in the paradox of technical abundance: in the age of Artificial Intelligence, we generate code in minutes, but organizations still struggle to convert that volume into real value.
-date: "2026-02-23T10:00:00-03:00"
+date: "2026-02-23T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

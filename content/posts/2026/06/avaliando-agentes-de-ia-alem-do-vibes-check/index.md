@@ -1,7 +1,7 @@
 ---
 title: 'Avaliando Agentes de IA Além do "Vibes Check": Como Medir o que Realmente Importa'
 description: "Seu agente mandou bem na demo e todo mundo achou incrível. Mas como você sabe que ele realmente funciona? Se a resposta for 'a gente testou e pareceu bom', você está operando no modo vibes. E vibes não escalam."
-date: "2026-06-29T10:00:00-03:00"
+date: "2026-06-29T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

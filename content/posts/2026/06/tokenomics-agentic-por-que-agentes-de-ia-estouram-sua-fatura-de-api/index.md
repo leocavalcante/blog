@@ -1,7 +1,7 @@
 ---
 title: 'Por que seu Agente de IA é um "Gastador" Compulsivo: A Verdade sobre o Consumo de Tokens'
 description: "Agentes autônomos podem transformar uma tarefa trivial em um buraco negro financeiro porque o consumo de tokens é massivo, estocástico e difícil de prever."
-date: "2026-06-16T10:00:00-03:00"
+date: "2026-06-16T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

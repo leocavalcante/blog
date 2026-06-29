@@ -1,7 +1,7 @@
 ---
 title: 'Why Your AI Agent Is a Compulsive "Spender": The Truth About Token Consumption'
 description: "Autonomous agents can turn a trivial task into a financial black hole because token consumption is massive, stochastic, and difficult to predict."
-date: "2026-06-16T10:00:00-03:00"
+date: "2026-06-16T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

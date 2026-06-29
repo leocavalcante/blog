@@ -1,7 +1,7 @@
 ---
 title: 'When Context Betrays You: Deriving Contexts for Optional Operations in Go'
 description: 'In Go, context.Context is the standard mechanism for propagating cancellation, deadlines, and values across Goroutines and function calls. But passing context forward has a subtle trap.'
-date: "2026-05-18T10:00:00-03:00"
+date: "2026-05-18T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

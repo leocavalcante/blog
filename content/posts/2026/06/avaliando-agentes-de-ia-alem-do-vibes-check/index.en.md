@@ -1,7 +1,7 @@
 ---
 title: 'Evaluating AI Agents Beyond the "Vibes Check": How to Measure What Actually Matters'
 description: "Your agent nailed the demo and everyone loved it. But how do you know it actually works? If the answer is 'we tested it and it seemed fine', you are operating in vibes mode. And vibes don't scale."
-date: "2026-06-29T10:00:00-03:00"
+date: "2026-06-29T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

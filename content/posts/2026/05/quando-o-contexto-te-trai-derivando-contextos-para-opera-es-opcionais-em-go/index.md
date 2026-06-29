@@ -1,7 +1,7 @@
 ---
 title: 'Quando o contexto te trai: derivando contextos para operações opcionais em Go'
 description: 'Em Go, o context.Context é o mecanismo padrão para propagar cancelamento, deadlines e valores entre Goroutines e chamadas de função. A regra geral é simples: sempre passe o contexto para frente. Mas e'
-date: "2026-05-18T10:00:00-03:00"
+date: "2026-05-18T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

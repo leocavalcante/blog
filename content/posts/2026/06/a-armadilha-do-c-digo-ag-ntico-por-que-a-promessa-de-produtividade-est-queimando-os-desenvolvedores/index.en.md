@@ -1,7 +1,7 @@
 ---
 title: 'The Agentic Coding Trap: Why the Productivity Promise Is Burning Developers Out'
 description: 'The pace of software development has undergone unprecedented compression. What was once simply programming is now trad coding: line-by-line work shaped by human problem-solving time.'
-date: "2026-06-01T10:00:00-03:00"
+date: "2026-06-01T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

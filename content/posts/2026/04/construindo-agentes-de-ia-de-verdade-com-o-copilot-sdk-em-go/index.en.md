@@ -1,7 +1,7 @@
 ---
 title: Building Real AI Agents with the Copilot SDK in Go
 description: If you follow the GitHub Copilot ecosystem, you have probably heard of *.agent.md files. They are great for simple things, basically a boosted prompt that runs inside Copilot
-date: "2026-04-22T10:00:00-03:00"
+date: "2026-04-22T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

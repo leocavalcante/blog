@@ -1,7 +1,7 @@
 ---
 title: 'Quando commits escalam mais rápido que reviews'
 description: 'O volume de código está crescendo mais rápido do que a capacidade humana de revisar. O problema não é usar IA, é fingir que review continua com o mesmo custo.'
-date: "2026-07-27T10:00:00-03:00"
+date: "2026-07-27T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

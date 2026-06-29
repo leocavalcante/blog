@@ -1,7 +1,7 @@
 ---
 title: 'A armadilha do código agêntico: por que a promessa de produtividade está queimando os desenvolvedores'
 description: O ritmo do desenvolvimento de software sofreu uma compressão sem precedentes. O que até pouco tempo era simplesmente "programar", hoje ganha a alcunha de trad coding (codificação tradicional), um proc
-date: "2026-06-01T10:00:00-03:00"
+date: "2026-06-01T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

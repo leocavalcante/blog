@@ -1,7 +1,7 @@
 ---
 title: Excessive Agency Is a Reliability Bug, Not Only a Security Risk
 description: "When an agent is allowed to act too broadly, the risk is not only leakage or abuse. It also becomes hard to operate: it works outside scope, repeats actions, burns budget, and fails without a clean way back."
-date: "2026-07-13T10:00:00-03:00"
+date: "2026-07-13T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

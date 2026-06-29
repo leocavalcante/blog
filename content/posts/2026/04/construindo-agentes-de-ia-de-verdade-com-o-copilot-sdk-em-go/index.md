@@ -1,7 +1,7 @@
 ---
 title: Construindo Agentes de IA de Verdade com o Copilot SDK em Go
 description: Se você acompanha o ecossistema do GitHub Copilot, provavelmente já ouviu falar dos arquivos *.agent.md. Eles são legais para coisas simples, basicamente um prompt turbinado que roda dentro do Copilot
-date: "2026-04-22T10:00:00-03:00"
+date: "2026-04-22T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

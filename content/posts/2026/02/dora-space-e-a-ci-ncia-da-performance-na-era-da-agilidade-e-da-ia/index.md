@@ -3,7 +3,7 @@ title: DORA, SPACE e a Ciência da Performance na Era da Agilidade e da IA
 description: |-
     O paradoxo da velocidade moderna
     Vivemos o paradoxo da abundância técnica: na era da Inteligência Artificial, geramos código em minutos, mas as organizações nunca lutaram tanto para converter esse vol
-date: "2026-02-23T10:00:00-03:00"
+date: "2026-02-23T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

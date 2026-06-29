@@ -1,7 +1,7 @@
 ---
 title: Por que sua IA falha? O segredo não está no modelo, mas no "Agent Harness"
 description: 'Você já deve ter passado por isso: em um momento, o GPT ou o Claude resolve um problema complexo de código em segundos; no momento seguinte, a mesma IA esquece o contexto básico ou inventa uma informa'
-date: "2026-05-04T10:00:00-03:00"
+date: "2026-05-04T08:45:00-03:00"
 updated: ""
 draft: false
 tags:
