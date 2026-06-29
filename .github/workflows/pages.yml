@@ -6,7 +6,8 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * *"
+    # 08:45 in America/Sao_Paulo.
+    - cron: "45 11 * * *"
 
 permissions:
   contents: read
@@ -84,4 +85,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-
