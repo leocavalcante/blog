@@ -1,7 +1,7 @@
 ---
 title: Excesso de agência é bug de confiabilidade, não só risco de segurança
 description: "Quando um agente pode agir demais, o risco não é apenas vazamento ou abuso. Ele também fica ruim de operar: executa trabalho fora de escopo, repete ações, gasta orçamento e falha sem caminho claro de volta."
-date: "2026-07-13T08:45:00-03:00"
+date: "2026-07-15T08:45:00-03:00"
 updated: ""
 draft: false
 tags:
