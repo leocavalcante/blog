@@ -1,7 +1,7 @@
 ---
 title: "Meta Harness: the missing layer in agent engineering"
 description: "The agent is no longer the whole product. The next jump is the layer above it: memory across sessions, coordination across agents, context across repos, and automatic optimization of the harness itself."
-date: "2026-07-08T08:45:00-03:00"
+date: "2026-07-15T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Meta Harness: a camada que falta na engenharia de agentes"
 description: "O agente deixou de ser o produto inteiro. O próximo salto está na camada acima: memória entre sessões, coordenação entre agentes, contexto entre repositórios e otimização automática do próprio harness."
-date: "2026-07-08T08:45:00-03:00"
+date: "2026-07-15T08:45:00-03:00"
 updated: ""
 draft: false
 tags:
