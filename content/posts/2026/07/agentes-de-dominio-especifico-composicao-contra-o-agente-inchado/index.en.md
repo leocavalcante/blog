@@ -1,7 +1,7 @@
 ---
 title: "Domain-specific agents: composition against the bloated agent"
 description: "The generic agent looks simple until it becomes a giant context window with too many tools, too many permissions, and too much cost. Domain-specific agents trade that accumulation for composition, clear boundaries, and cheaper execution."
-date: "2026-07-08T08:45:00-03:00"
+date: "2026-07-06T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

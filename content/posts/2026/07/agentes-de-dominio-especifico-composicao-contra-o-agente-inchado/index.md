@@ -1,7 +1,7 @@
 ---
 title: "Agentes de domínio específico: composição contra o agente inchado"
 description: "O agente genérico parece simples até virar um contexto gigante com ferramentas demais, permissões demais e custo demais. Agentes de domínio específico trocam esse acúmulo por composição, fronteiras claras e execução mais barata."
-date: "2026-07-08T08:45:00-03:00"
+date: "2026-07-06T08:45:00-03:00"
 updated: ""
 draft: false
 tags:

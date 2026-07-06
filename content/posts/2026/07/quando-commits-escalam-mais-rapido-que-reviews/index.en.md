@@ -1,7 +1,7 @@
 ---
 title: 'When Commits Scale Faster Than Reviews'
 description: 'Code volume is growing faster than human review capacity. The problem is not using AI, it is pretending review still costs the same.'
-date: "2026-07-22T08:45:00-03:00"
+date: "2026-07-20T08:45:00-03:00"
 updated: ""
 draft: false
 tags:
