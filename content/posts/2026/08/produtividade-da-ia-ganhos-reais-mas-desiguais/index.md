@@ -1,6 +1,6 @@
 ---
 title: "A produtividade da IA não é um número: por que os ganhos são reais, mas desiguais"
-description: "Experimentos randomizados, estudos de campo e dados de empresas mostram que a IA aumenta a capacidade de desenvolvimento, mas nem sempre acelera a entrega."
+description: "A IA escreve código mais rápido. A pergunta difícil é se ficou mais fácil entregar software que alguém consegue entender, revisar e manter."
 date: "2026-08-17T08:30:00-03:00"
 updated: ""
 draft: false
@@ -17,119 +17,154 @@ cover_credit_name: "Bayu Syaits / Unsplash"
 cover_credit_url: "https://unsplash.com/photos/laptop-and-phone-on-a-desk-with-coding-software-open-oYzjGQ7LCVE"
 ---
 
-Quando alguém afirma que a inteligência artificial torna desenvolvedores 30% mais produtivos, a próxima pergunta deveria ser: **30% de quê?**
+A conversa sobre produtividade com IA está presa em um número.
 
-Tempo para concluir uma tarefa? Pull requests? Commits? Deploys? Valor entregue ao usuário? Satisfação do time? Cada métrica captura uma parte diferente do trabalho de engenharia.
+55,8%. 26%. 19%.
 
-A evidência disponível até agosto de 2026 sustenta uma conclusão mais interessante do que um multiplicador universal: **a IA aumenta a capacidade de produzir software, mas o ganho realizado depende da tarefa, do repositório, da experiência do desenvolvedor, do modo de uso da ferramenta e da capacidade de revisão do sistema**.
+Escolha o percentual que combina com a sua tese e você já tem um slide pronto para a próxima reunião. O problema é que software não é slide. O número pode estar correto e ainda assim contar só uma parte da história.
 
-Os ganhos são reais. Eles também são distribuídos de forma desigual.
+Se você acompanha meus textos sobre [commits e reviews](/quando-commits-escalam-mais-rapido-que-reviews/) e sobre [o próximo salto do desenvolvimento com IA](/o-proximo-salto-do-desenvolvimento-com-ia-da-assistencia-a-orquestracao/), sabe que eu não compro a ideia de que produtividade é simplesmente gerar mais código por hora.
 
-## Produtividade tem vários denominadores
+A IA ficou muito boa em produzir código. A pergunta difícil é se ficou mais fácil produzir software.
 
-Antes de comparar estudos, precisamos separar as perguntas que costumam ser misturadas:
+Minha leitura da pesquisa até agosto de 2026 é direta: **os ganhos existem, mas não são um multiplicador universal. Eles dependem da tarefa, do repositório, da experiência do desenvolvedor, do tipo de ferramenta e da capacidade de revisão do time**.
 
-| Medida | Pergunta que ela responde |
+## Primeiro: 30% de quê?
+
+Antes de comparar os estudos, precisamos parar de misturar métricas diferentes na mesma frase:
+
+| Métrica | O que ela mede |
 | --- | --- |
-| Velocidade da tarefa | Quanto tempo levou para concluir o mesmo trabalho? |
+| Velocidade da tarefa | Quanto tempo levou para fazer o mesmo trabalho? |
 | Throughput | Quantas tarefas, PRs ou commits foram produzidos? |
 | Fluxo de entrega | Quanto tempo leva para uma mudança chegar ao usuário? |
-| Qualidade e confiabilidade | Quanto retrabalho, falha, rollback ou incidente surgiu depois? |
-| Valor | O software resolveu um problema importante para o usuário ou para o negócio? |
-| Experiência do desenvolvedor | O time está mais focado, satisfeito e sustentável? |
+| Qualidade | Quanto retrabalho, rollback, bug ou incidente apareceu depois? |
+| Valor | O software resolveu um problema importante? |
+| Experiência | O time está mais focado e sustentável? |
 
-Uma melhoria em uma linha não garante melhoria em todas as outras. É perfeitamente possível escrever código mais rápido, abrir mais PRs e ainda esperar mais tempo por revisão antes de fazer deploy.
+Uma métrica pode melhorar enquanto outra piora. Dá para escrever código mais rápido, abrir mais PRs e esperar mais tempo por review antes do deploy. Dá para sentir mais flow e continuar gastando as mesmas horas em reunião, burocracia e coordenação.
 
-## O que a pesquisa mede, de fato
+É aí que começa a confusão.
 
-Os resultados abaixo parecem divergentes porque medem populações e desfechos diferentes:
+## Os números não estão brigando
 
-| Evidência | Resultado principal | Como interpretar |
+Os resultados abaixo parecem contraditórios porque respondem a perguntas diferentes:
+
+| Estudo | Resultado | O que eu tiraria dele |
 | --- | --- | --- |
-| Experimento controlado com GitHub Copilot | 55,8% menos tempo em uma tarefa de servidor HTTP em JavaScript ([estudo](https://arxiv.org/abs/2302.06590)) | Forte efeito em uma tarefa bem delimitada e autocontida. Não é uma medida do ciclo completo de produto. |
-| RCT empresarial do Google | Aproximadamente 21% menos tempo em uma tarefa complexa de nível empresarial, com 96 engenheiros ([estudo](https://arxiv.org/abs/2410.12944)) | Evidência positiva em um ambiente real, mas com uma tarefa e ferramentas internas específicas. |
-| Três experimentos de campo, publicados em *Management Science* | 26,08% mais tarefas concluídas entre 4.867 desenvolvedores ([estudo](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00535)) | A evidência causal mais ampla até agora. O efeito é ruidoso, mede principalmente acesso a completions e volume de output, e foi maior entre desenvolvedores menos experientes. |
-| RCT da METR | Tarefas levaram 19% mais tempo para 16 desenvolvedores experientes em 246 tarefas de projetos maduros ([estudo](https://arxiv.org/abs/2507.09089)) | Um alerta causal importante sobre trabalho brownfield, contexto tácito e custo de validação. Não é uma taxa universal de impacto da IA. |
-| Estudo de open source, versão revisada em agosto de 2026 | 5,9% mais contribuições de código, mas 8% mais tempo de coordenação ([estudo](https://arxiv.org/abs/2410.02091)) | Mais produção pode vir acompanhada de mais discussão, integração e coordenação. |
-| Estudo longitudinal de uma empresa com meta de 2x | 2,09 vezes mais PRs por desenvolvedor ativo em abril de 2026, enquanto a carga de revisão aproximadamente dobrou ([estudo](https://arxiv.org/abs/2607.01904)) | Um sinal forte de que ganhos grandes são possíveis em uma organização favorável, mas o estudo não foi randomizado e cobre uma única empresa. |
+| Experimento controlado com GitHub Copilot | 55,8% menos tempo em uma tarefa de servidor HTTP em JavaScript ([estudo](https://arxiv.org/abs/2302.06590)) | Tarefa pequena, bem delimitada e autocontida pode ficar muito mais rápida. Isso não é o ciclo completo de produto. |
+| RCT empresarial do Google | Cerca de 21% menos tempo em uma tarefa complexa, com 96 engenheiros ([estudo](https://arxiv.org/abs/2410.12944)) | Existe ganho em ambiente real, mas uma tarefa e ferramentas internas não representam todo o mercado. |
+| Três experimentos de campo publicados em *Management Science* | 26,08% mais tarefas concluídas entre 4.867 desenvolvedores ([estudo](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00535)) | É a evidência causal mais ampla até agora. Mede output de desenvolvimento e o efeito foi maior entre pessoas menos experientes. |
+| RCT da METR | Tarefas levaram 19% mais tempo para 16 desenvolvedores experientes em 246 tarefas de projetos maduros ([estudo](https://arxiv.org/abs/2507.09089)) | Trabalho brownfield, contexto tácito e validação podem apagar o ganho ou virar slowdown. |
+| Estudo de open source, revisado em agosto de 2026 | 5,9% mais contribuições de código, mas 8% mais tempo de coordenação ([estudo](https://arxiv.org/abs/2410.02091)) | Mais produção não significa coordenação grátis. |
+| Estudo longitudinal de uma empresa com meta de 2x | 2,09 vezes mais PRs por desenvolvedor ativo, enquanto a carga de review aproximadamente dobrou ([estudo](https://arxiv.org/abs/2607.01904)) | Ganhos grandes são possíveis, mas esse é um caso não randomizado e muito favorável à IA. |
 
-O resultado mais importante não é escolher um número vencedor. É perceber que cada número estima um **efeito diferente**.
+Não dá para escolher um número e chamar isso de “a produtividade da IA”. Cada estudo está estimando uma coisa.
 
-## 1. A IA é ótima em algumas tarefas e medíocre em outras
+## 1. A mágica aparece em tarefas bem definidas
 
-Os maiores ganhos aparecem quando o problema é bem especificado, local, testável e composto por padrões que o modelo já conhece. Criar um endpoint convencional, gerar testes, transformar estruturas de dados, produzir documentação inicial ou escrever código repetitivo são exemplos de trabalhos nos quais a velocidade bruta tende a aparecer.
+Os maiores ganhos aparecem quando o problema é local, testável e baseado em padrões conhecidos. Criar um endpoint convencional, gerar testes, transformar uma estrutura de dados, escrever documentação inicial ou produzir código repetitivo são trabalhos em que a velocidade bruta aparece com facilidade.
 
-Já tarefas ambíguas, arquiteturais ou dependentes de contexto histórico são outra história. Elas exigem entender contratos implícitos, decisões antigas, exceções de negócio e consequências que não estão escritas em um único arquivo.
+A tarefa do experimento do Copilot era um servidor HTTP em JavaScript. O resultado de 55,8% é relevante. Também é exatamente o tipo de número que vira propaganda quando alguém esquece de dizer o que foi medido.
 
-É exatamente nesse cenário que o estudo da METR encontrou o slowdown. Os participantes trabalhavam em repositórios maduros que conheciam bem. Com a IA habilitada, passaram menos tempo codificando, mas mais tempo revisando a saída, escrevendo prompts, esperando e corrigindo mudanças. O modelo produzia texto rapidamente, mas não possuía todo o conhecimento tácito necessário para produzir uma mudança pronta para merge.
+O mundo real tem uma parte menos conveniente. Tarefas de arquitetura, regras de negócio, segurança, performance e manutenção de sistemas antigos não vêm com um enunciado limpo e um conjunto de testes perfeito. Elas exigem entender por que aquele código estranho existe, qual cliente depende daquela exceção e qual comportamento não pode ser quebrado.
 
-Uma forma simples de entender isso é pela ideia de gargalo. Se a codificação representa 40% de um ciclo de entrega e a IA torna essa parte 25% mais rápida, o ganho teórico no ciclo inteiro é de apenas 10%, antes de considerar retrabalho, revisão e incidentes. A conta é uma ilustração, não uma estimativa observada, mas mostra por que uma grande melhoria local pode virar uma pequena melhoria sistêmica.
+Foi nesse ambiente que a METR encontrou slowdown. Com a IA habilitada, os desenvolvedores passaram menos tempo codificando, mas mais tempo revisando a saída, escrevendo prompts, esperando e corrigindo mudanças. O código apareceu rápido. O entendimento não.
 
-## 2. Contexto é um multiplicador
+Existe um gargalo simples aqui. Se a codificação representa 40% de um ciclo de entrega e a IA deixa essa parte 25% mais rápida, o ganho teórico no ciclo inteiro é de 10%, antes de considerar review, retrabalho e incidentes. É uma conta ilustrativa, não uma estimativa observada, mas ajuda a explicar por que uma melhoria enorme na geração pode virar uma melhoria pequena na entrega.
 
-Modelos podem ler arquivos, mas ler não é o mesmo que compreender o contexto operacional de um sistema.
+## 2. Contexto é o multiplicador que ninguém coloca no slide
 
-Um repositório com documentação atualizada, testes confiáveis, CI rápido, arquitetura modular e feedback claro oferece ao modelo um ambiente onde erros são descobertos cedo. Um repositório com testes frágeis, serviços fortemente acoplados e regras espalhadas na memória de pessoas específicas transforma cada sugestão em uma investigação.
+Um modelo consegue ler arquivos. Isso não significa que ele sabe por que aquele código foi escrito daquele jeito.
 
-O estudo longitudinal da empresa com meta de 2x encontrou ganhos concentrados em código novo e quase ausentes em código legado. Essa diferença é coerente com a experiência da METR: quanto mais conhecimento tácito e compatibilidade histórica uma mudança exige, maior o custo de verificar se a geração realmente está correta.
+Um repositório com documentação atualizada, testes confiáveis, CI rápido, arquitetura modular e feedback claro dá ao agente uma chance razoável de descobrir seus próprios erros. Um repositório com testes frágeis, serviços acoplados e regras guardadas na cabeça de três pessoas transforma cada sugestão em uma investigação.
 
-É por isso que a IA funciona melhor como multiplicador de uma base de engenharia saudável. Ela não substitui documentação, testes ou observabilidade. Em muitos casos, torna a ausência deles mais cara.
+O estudo longitudinal da empresa com meta de 2x encontrou ganhos concentrados em código novo e quase ausentes em código legado. Isso combina com a experiência da METR: quanto mais conhecimento tácito e compatibilidade histórica uma mudança exige, mais caro fica verificar se a geração está realmente correta.
 
-## 3. O gargalo migra da geração para a revisão
+É por isso que eu vejo IA como multiplicador de uma base de engenharia saudável. Ela não substitui documentação, testes ou observabilidade. Em muitos casos, torna a ausência deles mais cara.
 
-O sistema de desenvolvimento tem uma capacidade limitada de revisar, integrar e operar mudanças. Se a IA aumenta a taxa de geração sem aumentar essa capacidade, a fila simplesmente aparece em outro lugar.
+## 3. A geração acelera. O review continua humano.
 
-O DORA descreveu essa tensão em dois momentos. O relatório anterior sobre GenAI associou um aumento de 25% na adoção a uma queda de 1,5% no throughput de entrega e de 7,2% na estabilidade. A explicação proposta foi que a geração rápida favorece mudanças maiores, que demoram mais para revisar e têm maior probabilidade de instabilizar o sistema ([relatório DORA sobre GenAI](https://dora.dev/ai/gen-ai-report/report/)).
+Escrever código ficou mais barato. Entender código não ficou.
 
-No relatório de 2025, baseado em quase 5.000 profissionais de tecnologia, a associação entre adoção de IA e throughput passou a ser positiva, mas a estabilidade continuou associada negativamente à adoção ([relatório DORA de 2025](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report)). Isso parece menos uma contradição do que um sinal de adaptação: as equipes aprenderam a absorver mais produção, mas a confiabilidade ainda exige investimento.
+Um agente pode abrir um PR em minutos. Isso não significa que alguém consiga entender aquele PR em minutos. Review ainda exige reconstruir contexto, comparar alternativas, identificar risco, checar testes e decidir se a mudança deveria existir.
 
-O estudo empresarial mais recente reforça a mesma leitura. A quantidade de PRs cresceu até 2,09 vezes, mas a carga por revisor também aproximadamente dobrou. A revisão automatizada passou a cobrir mais mudanças, enquanto as taxas de merge e revert permaneceram estáveis. A geração não eliminou o trabalho de revisão; ela reorganizou esse trabalho.
+Como escrevi em [Quando commits escalam mais rápido que reviews](/quando-commits-escalam-mais-rapido-que-reviews/), o custo caro do review nunca foi ler caracteres. Foi formar julgamento.
 
-Há também um efeito coletivo. A versão mais recente do estudo sobre open source encontrou mais contribuições e mais participação, mas também 8% mais tempo de coordenação. Em uma comunidade, uma sugestão que economiza tempo para quem escreve pode criar discussão adicional para quem integra.
+O DORA encontrou essa tensão em momentos diferentes. O relatório anterior sobre GenAI associou um aumento de 25% na adoção a uma queda de 1,5% no throughput de entrega e de 7,2% na estabilidade. A explicação é bastante plausível: a geração rápida favorece mudanças maiores, que demoram mais para revisar e têm mais chance de instabilizar o sistema ([relatório DORA sobre GenAI](https://dora.dev/ai/gen-ai-report/report/)).
 
-## 4. A experiência distribui o ganho de forma desigual
+No relatório de 2025, baseado em quase 5.000 profissionais de tecnologia, a associação entre adoção de IA e throughput passou a ser positiva, mas a estabilidade continuou associada negativamente ([relatório DORA de 2025](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report)). As equipes aprenderam a absorver mais output. A confiabilidade ainda cobra investimento.
 
-Os experimentos de campo publicados em *Management Science* encontraram maior adoção e ganhos maiores entre desenvolvedores menos experientes. Isso sugere que assistentes de código podem reduzir barreiras de entrada e ajudar pessoas a produzir em áreas nas quais ainda não dominam todos os padrões.
+O estudo empresarial mais recente conta a mesma história de outro jeito: PRs cresceram 2,09 vezes, mas a carga por revisor também aproximadamente dobrou. A revisão automatizada cobriu mais mudanças. O trabalho de review não desapareceu; ele mudou de lugar.
 
-Mas a experiência tem um segundo efeito. Desenvolvedores seniores são justamente os mais capazes de identificar bugs sutis, violações arquiteturais e decisões frágeis. Em um estudo observacional recente sobre open source, contribuições de pessoas periféricas cresceram, enquanto mantenedores centrais passaram a revisar mais código e a produzir menos código original ([estudo sobre custo de manutenção](https://arxiv.org/abs/2510.10165)). Esse trabalho ainda é um preprint e usa uma identificação observacional, portanto deve ser lido como sinal, não como causalidade definitiva.
+E no open source, o efeito aparece como coordenação: mais contribuições, mais participação e 8% mais tempo conversando e integrando. Uma sugestão pode economizar tempo para quem escreve e criar trabalho adicional para quem mantém.
 
-A pergunta não é apenas se cada desenvolvedor ficou mais rápido. É também: **quem absorveu o custo da velocidade?**
+## 4. A velocidade não fica distribuída igualmente
 
-## 5. O baseline das ferramentas está mudando
+Os experimentos de campo publicados em *Management Science* encontraram maior adoção e ganhos maiores entre desenvolvedores menos experientes. Isso faz sentido: um assistente de código reduz a barreira para produzir algo que a pessoa ainda não escreveria sozinha.
 
-Não devemos tratar o resultado de 19% de slowdown da METR como se fosse uma fotografia permanente da IA para programação. O estudo mediu ferramentas disponíveis entre fevereiro e junho de 2025, principalmente Cursor Pro e Claude 3.5/3.7 Sonnet.
+Mas existe o outro lado. O desenvolvedor sênior é quem percebe o bug sutil, a violação arquitetural e a abstração que parece elegante mas vai custar caro daqui a seis meses.
 
-Em uma atualização de fevereiro de 2026, a METR afirmou que as ferramentas mais novas provavelmente aceleram mais os desenvolvedores. Ao mesmo tempo, a organização considerou seu novo experimento inconclusivo: usuários que não queriam trabalhar sem IA deixaram de participar, alguns participantes mudaram o tipo de tarefa escolhida e o uso simultâneo de múltiplos agentes tornou a medição de tempo pouco confiável ([atualização da METR](https://metr.org/blog/2026-02-24-uplift-update/)).
+Um estudo observacional recente sobre open source encontrou mais contribuições de pessoas periféricas, enquanto mantenedores centrais passaram a revisar mais código e a produzir menos código original ([estudo sobre custo de manutenção](https://arxiv.org/abs/2510.10165)). O trabalho ainda é um preprint e não prova causalidade sozinho. Mesmo assim, aponta para uma pergunta que quase nunca aparece no slide de produtividade:
 
-Essa cautela é importante. O cenário atual mistura autocomplete, chat dentro da IDE, agentes que editam o repositório e agentes que executam tarefas em paralelo. Cada modo altera a distribuição do trabalho e a forma correta de medir tempo.
+**Quem absorveu o custo da velocidade?**
 
-## 6. Velocidade percebida não é valor entregue
+Se juniors geram mais e seniors passam o dia corrigindo, o time não ganhou apenas produtividade. Ele redistribuiu trabalho e risco.
 
-Uma pesquisa da METR com 349 profissionais técnicos no início de 2026 encontrou uma mediana de 1,4 a 2 vezes mais valor percebido no trabalho e 3 vezes mais velocidade percebida. Os próprios autores alertam que a amostra é de conveniência, teve resposta de aproximadamente 2% entre os contatos e pode superestimar ganhos. Eles também distinguem velocidade de valor: a IA pode tornar viável uma tarefa que antes nem seria priorizada, sem que isso signifique o dobro de valor para o produto ([pesquisa da METR](https://metr.org/blog/2026-05-11-ai-usage-survey/)).
+## 5. As ferramentas estão mudando, então o baseline também
 
-O DORA encontrou algo complementar: usuários intensivos relatam mais flow, satisfação e produtividade, mas não necessariamente passam menos tempo em tarefas burocráticas. Um estudo longitudinal pequeno com três equipes ágeis observou aumento de performance e eficiência percebida com atividade praticamente estável, sugerindo maior densidade de valor, e não simplesmente mais volume ([estudo longitudinal sobre equipes ágeis](https://arxiv.org/abs/2602.13766)).
+Eu não usaria o slowdown de 19% da METR como se fosse uma fotografia permanente da programação com IA. O estudo mediu ferramentas disponíveis entre fevereiro e junho de 2025, principalmente Cursor Pro e Claude 3.5/3.7 Sonnet.
 
-Isso muda a pergunta de gestão. Em vez de perguntar “quantas linhas ou PRs a IA adicionou?”, deveríamos perguntar “qual trabalho importante ficou possível, melhor ou mais rápido?”.
+Em fevereiro de 2026, a METR disse que as ferramentas novas provavelmente aceleram mais os desenvolvedores. Mas também disse que seu experimento mais recente era inconclusivo: pessoas que não queriam trabalhar sem IA deixaram de participar, algumas escolheram tarefas diferentes e o uso de múltiplos agentes tornou a medição de tempo pouco confiável ([atualização da METR](https://metr.org/blog/2026-02-24-uplift-update/)).
 
-## Como medir na sua equipe
+Essa cautela é importante. Hoje misturamos autocomplete, chat dentro da IDE, agentes que editam o repositório e agentes que trabalham em paralelo. Cada modo muda a distribuição do trabalho e muda a forma correta de medir tempo.
 
-Uma avaliação séria precisa combinar métricas de geração com métricas de absorção:
+O que eu não faria é trocar um número antigo por uma promessa nova de 2x sem medir o próprio fluxo.
 
-1. **Segmente por tipo de tarefa.** Compare testes, documentação, manutenção, features novas, refatorações e mudanças arquiteturais separadamente.
-2. **Meça o ciclo completo.** Registre tempo até merge, espera por revisão, rework, rollback e tempo até produção, não apenas tempo de digitação.
-3. **Acompanhe a qualidade.** Observe falhas de mudança, defeitos escapados, incidentes, reversões e alterações que precisam ser reabertas.
-4. **Meça a capacidade de revisão.** A IA pode melhorar o output individual enquanto aumenta a fila e a carga dos mantenedores.
-5. **Inclua experiência e contexto.** Compare resultados por senioridade, familiaridade com o repositório, maturidade do código e modo de uso da ferramenta.
-6. **Conecte a produtividade ao valor.** Use adoção de funcionalidades, tempo de resolução de problemas, satisfação do usuário e resultados de negócio quando fizer sentido.
+## 6. Mais rápido não é a mesma coisa que mais valor
 
-Linhas de código, quantidade de PRs e taxa de sugestões aceitas podem ser sinais auxiliares. Sozinhos, são métricas fáceis de inflar e difíceis de relacionar com software melhor.
+Uma pesquisa da METR com 349 profissionais técnicos no início de 2026 encontrou mediana de 1,4 a 2 vezes mais valor percebido e 3 vezes mais velocidade percebida. Os próprios autores alertam que a amostra é de conveniência, teve resposta de aproximadamente 2% entre os contatos e pode superestimar ganhos ([pesquisa da METR](https://metr.org/blog/2026-05-11-ai-usage-survey/)).
 
-## A conclusão mais útil
+Eles fazem uma distinção que eu considero essencial: velocidade e valor não são a mesma coisa. A IA pode tornar viável uma tarefa que antes nem entraria no backlog. Isso é útil. Não significa automaticamente que o produto ganhou o dobro de valor.
 
-A IA não é um multiplicador constante aplicado a todos os desenvolvedores e tarefas. Ela é um **amplificador com distribuição de efeitos**.
+O DORA encontrou algo complementar: usuários intensivos relatam mais flow, satisfação e produtividade, mas não necessariamente gastam menos tempo em burocracia. Um estudo longitudinal pequeno com três equipes ágeis encontrou mais performance e eficiência percebida com atividade praticamente estável, sugerindo maior densidade de valor, e não simplesmente mais volume ([estudo longitudinal sobre equipes ágeis](https://arxiv.org/abs/2602.13766)).
 
-Os maiores ganhos aparecem quando o trabalho é bem especificado, testável e apoiado por bons fluxos de engenharia. Os menores ganhos, e às vezes perdas, aparecem quando o custo principal está em compreender contexto, validar comportamento, coordenar pessoas ou manter sistemas legados.
+A pergunta de gestão deixa de ser “quantas linhas a IA escreveu?” e passa a ser: **qual trabalho importante ficou possível, melhor ou mais rápido?**
 
-O futuro da produtividade em software não será decidido apenas pela velocidade de geração. Será decidido pela capacidade de especificar, revisar, integrar e operar o código produzido.
+## Como eu mediria isso em um time
 
-Os ganhos são reais. Para transformá-los em valor real, a equipe precisa aumentar a capacidade de verificação junto com a capacidade de geração.
+Eu começaria por uma regra simples: não medir IA com uma única métrica.
+
+1. **Separaria por tipo de tarefa.** Teste, documentação, manutenção, feature nova, refatoração e arquitetura não são a mesma coisa.
+2. **Mediria o ciclo completo.** Tempo até merge, espera por review, rework, rollback e tempo até produção importam mais do que tempo de digitação.
+3. **Acompanharia a qualidade.** Falha de mudança, bug escapado, incidente, revert e PR reaberto precisam entrar na conta.
+4. **Mediria a carga de review.** Se output sobe e a fila de review explode, existe um problema, mesmo que o dashboard de commits esteja bonito.
+5. **Segmentaria por contexto.** Senioridade, familiaridade com o repositório, maturidade do código e modo de uso da ferramenta mudam o resultado.
+6. **Ligaria produtividade a valor.** Adoção da funcionalidade, tempo para resolver problemas, satisfação do usuário e resultado do negócio são sinais melhores do que linhas de código.
+
+Linhas de código, quantidade de PRs e taxa de sugestões aceitas podem ajudar como sinais auxiliares. Sozinhas, são fáceis de inflar e difíceis de relacionar com software melhor.
+
+## A conclusão que eu consigo defender
+
+A IA não é um multiplicador constante aplicado a todos os desenvolvedores e tarefas. Ela é um **amplificador com uma distribuição de efeitos**.
+
+Para uma tarefa clara, local e testável, o ganho pode ser enorme. Para um sistema legado, cheio de contexto tácito e revisão difícil, o ganho pode evaporar. Em alguns casos, a ferramenta apenas acelera a produção do trabalho que outra pessoa terá de entender e corrigir.
+
+O futuro da produtividade em software não vai ser decidido apenas pela velocidade de geração. Vai ser decidido pela capacidade de especificar, revisar, integrar e operar o código produzido.
+
+Os ganhos são reais. O atalho não é gratuito.
+
+Se seu time está produzindo mais código, a pergunta seguinte é inevitável: vocês também conseguem entender e manter tudo isso?
+
+## Referências
+
+- [The Impact of AI on Developer Productivity: Evidence from GitHub Copilot](https://arxiv.org/abs/2302.06590)
+- [How much does AI impact development speed?](https://arxiv.org/abs/2410.12944)
+- [The Effects of Generative AI on High-Skilled Work](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00535)
+- [Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity](https://arxiv.org/abs/2507.09089)
+- [The Impact of Generative AI on Collaborative Open-Source Software Development](https://arxiv.org/abs/2410.02091)
+- [AI Writes Faster Than Humans Can Review](https://arxiv.org/abs/2607.01904)
+- [Impact of Generative AI in Software Development](https://dora.dev/ai/gen-ai-report/report/)
+- [State of AI-assisted Software Development 2025](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report)
+- [METR productivity experiment update](https://metr.org/blog/2026-02-24-uplift-update/)
+- [METR early-2026 AI usage survey](https://metr.org/blog/2026-05-11-ai-usage-survey/)
