@@ -1,7 +1,7 @@
 ---
 title: "What a Forward Deployed Engineer and an Applied AI Engineer do"
 description: "I read five postings open in September 2026 at Palantir, OpenAI, and Anthropic. They describe the same arc, from an open question to production adoption, and they ask for two deliverables: the customer's system and what it teaches the product back home."
-date: "2026-09-28T08:30:00-03:00"
+date: "2026-10-05T08:30:00-03:00"
 updated: ""
 draft: false
 tags:
