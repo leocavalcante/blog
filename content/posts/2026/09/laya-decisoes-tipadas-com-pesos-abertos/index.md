@@ -1,7 +1,7 @@
 ---
 title: "Laya tem pesos abertos. A operação fica com você"
 description: "Laya é um modelo de decisão não autorregressivo com pesos Apache 2.0. Ele troca a conveniência de uma API hospedada pelo controle de rodar, avaliar e especializar o modelo."
-date: "2026-09-28T08:30:00-03:00"
+date: "2026-09-24T15:00:00-03:00"
 updated: ""
 draft: false
 tags:

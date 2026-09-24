@@ -1,7 +1,7 @@
 ---
 title: "Laya has open weights. You own the operations"
 description: "Laya is a non-autoregressive decision model under Apache 2.0. It trades the convenience of a hosted API for control over running, evaluating, and specializing the model."
-date: "2026-09-28T08:30:00-03:00"
+date: "2026-09-24T15:00:00-03:00"
 updated: ""
 draft: false
 tags:
