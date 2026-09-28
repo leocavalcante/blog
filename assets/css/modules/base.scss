@@ -1,5 +1,5 @@
-:root {
-  color-scheme: light dark;
+@mixin light-theme {
+  color-scheme: light;
   --bg: #fdfdfc;
   --surface: #ffffff;
   --text: #1a1a1a;
@@ -28,40 +28,57 @@
   --code-deleted: #82071e;
   --code-deleted-bg: #ffebe9;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+@mixin dark-theme {
+  color-scheme: dark;
+  --bg: #0d0d0d;
+  --surface: #141414;
+  --text: #eeeeee;
+  --muted: #a0a0a0;
+  --line: #222222;
+  --accent: #2dd4bf;
+  --accent-strong: #fb7185;
+  --code-bg: #0d1117;
+  --code-text: #e6edf3;
+  --code-border: #30363d;
+  --code-inline-bg: #1f2937;
+  --code-comment: #8b949e;
+  --code-keyword: #ff7b72;
+  --code-constant: #79c0ff;
+  --code-function: #d2a8ff;
+  --code-string: #a5d6ff;
+  --code-variable: #ffa657;
+  --code-label: #f85149;
+  --code-namespace: #c9d1d9;
+  --code-error: #f0f6fc;
+  --code-error-bg: #8e1519;
+  --code-line-number: #6e7681;
+  --code-line-highlight: #161b22;
+  --code-inserted: #aff5b4;
+  --code-inserted-bg: #033a16;
+  --code-deleted: #ffdcd7;
+  --code-deleted-bg: #67060c;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+:root {
+  @include light-theme;
   --radius: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0d0d0d;
-    --surface: #141414;
-    --text: #eeeeee;
-    --muted: #a0a0a0;
-    --line: #222222;
-    --accent: #2dd4bf;
-    --accent-strong: #fb7185;
-    --code-bg: #0d1117;
-    --code-text: #e6edf3;
-    --code-border: #30363d;
-    --code-inline-bg: #1f2937;
-    --code-comment: #8b949e;
-    --code-keyword: #ff7b72;
-    --code-constant: #79c0ff;
-    --code-function: #d2a8ff;
-    --code-string: #a5d6ff;
-    --code-variable: #ffa657;
-    --code-label: #f85149;
-    --code-namespace: #c9d1d9;
-    --code-error: #f0f6fc;
-    --code-error-bg: #8e1519;
-    --code-line-number: #6e7681;
-    --code-line-highlight: #161b22;
-    --code-inserted: #aff5b4;
-    --code-inserted-bg: #033a16;
-    --code-deleted: #ffdcd7;
-    --code-deleted-bg: #67060c;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    @include dark-theme;
   }
+}
+
+:root[data-theme="light"] {
+  @include light-theme;
+}
+
+:root[data-theme="dark"] {
+  @include dark-theme;
 }
 
 * {

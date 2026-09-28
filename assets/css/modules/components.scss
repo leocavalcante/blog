@@ -26,6 +26,46 @@
 .site-nav a { text-decoration: none; }
 .site-nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.theme-icon-moon,
+.theme-toggle[data-current-theme="dark"] .theme-icon-sun {
+  display: none;
+}
+
+.theme-toggle[data-current-theme="dark"] .theme-icon-moon {
+  display: block;
+}
+
 /* Cards */
 .post-card {
   display: grid;
