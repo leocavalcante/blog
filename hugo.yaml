@@ -14,14 +14,14 @@ languages:
     weight: 1
     title: Leo Cavalcante
     params:
-      description: Anotações pessoais sobre engenharia de software, developer experience, Go, PHP, infraestrutura e IA.
+      description: Anotações pessoais sobre engenharia de software, developer experience, inteligência artificial, cloud, infraestrutura, DevOps e SRE.
   en:
     locale: en
     label: English
     weight: 2
     title: Leo Cavalcante
     params:
-      description: Personal notes on software engineering, developer experience, Go, PHP, infrastructure, and AI.
+      description: Personal notes on software engineering, developer experience, artificial intelligence, cloud, infrastructure, DevOps, and SRE.
 
 pagination:
   pagerSize: 10
@@ -60,7 +60,7 @@ markup:
 
 params:
   author: Leo Cavalcante
-  description: Anotações pessoais sobre engenharia de software, developer experience, Go, PHP, infraestrutura e IA.
+  description: Anotações pessoais sobre engenharia de software, developer experience, inteligência artificial, cloud, infraestrutura, DevOps e SRE.
   mainSections:
     - posts
   images:
