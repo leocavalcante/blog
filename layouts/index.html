@@ -1,6 +1,7 @@
 {{ define "main" }}
   {{ $isPT := eq site.Language.Lang "pt-br" }}
   <section class="home-hero">
+    {{ partial "hero-animation.html" . }}
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Developer Experience @ PicPay</p>

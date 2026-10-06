@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   </head>
   <body>
+    <div class="site-header-space">
     <header class="site-header">
       <div class="wrap header-inner">
         <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}">
@@ -67,6 +68,7 @@
         <div id="progress-bar" style="width: 0; height: 3px; background: var(--accent); position: absolute; bottom: 0; left: 0; transition: width 0.1s; z-index: 10;"></div>
       {{ end }}
     </header>
+    </div>
     <main id="main" data-pagefind-body>
       {{ block "main" . }}{{ end }}
     </main>
@@ -129,6 +131,17 @@
       </script>
     {{ end }}
     <script>
+      (() => {
+        const header = document.querySelector('.site-header');
+        const updateHeader = () => {
+          header.classList.toggle('is-scrolled', window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        window.addEventListener('pageshow', updateHeader);
+        updateHeader();
+      })();
+
       (() => {
         const toggle = document.getElementById('theme-toggle');
         const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');

@@ -1,4 +1,7 @@
 .home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   border-bottom: 1px solid var(--line);
   padding: 80px 0;
   background-image: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--accent), transparent 97%), transparent 40%);
@@ -6,10 +9,109 @@
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: 64px;
   align-items: center;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.hero-art-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-art-grid {
+  opacity: 0.16;
+}
+
+.hero-art-rings {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.16;
+}
+
+.hero-art-orbit {
+  transform-box: view-box;
+  transform-origin: 1020px 320px;
+  animation: hero-orbit 48s linear infinite;
+}
+
+.hero-art-orbit-outer {
+  animation-duration: 100s;
+}
+
+.hero-art-orbit-one {
+  animation-duration: 32s;
+  animation-delay: -5s;
+}
+
+.hero-art-orbit-two {
+  color: var(--accent-strong);
+  animation-duration: 46s;
+  animation-direction: reverse;
+  animation-delay: -18s;
+}
+
+.hero-art-orbit-three {
+  animation-duration: 64s;
+  animation-delay: -30s;
+}
+
+.hero-art-dashed-ring,
+.hero-art-cross,
+.hero-art-diamond,
+.hero-art-point-halo,
+.hero-art-trail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.hero-art-dashed-ring {
+  stroke-dasharray: 2 12;
+  opacity: 0.14;
+}
+
+.hero-art-cross,
+.hero-art-diamond {
+  opacity: 0.4;
+}
+
+.hero-art-trail {
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.3;
+}
+
+.hero-art-point {
+  fill: currentColor;
+  opacity: 0.6;
+}
+
+.hero-art-point-halo {
+  opacity: 0.2;
+}
+
+@keyframes hero-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art * {
+    animation: none !important;
+  }
 }
 
 .eyebrow {
@@ -91,5 +193,15 @@
   
   .featured {
     max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 40px 0;
+  }
+
+  .hero-grid {
+    gap: 32px;
   }
 }

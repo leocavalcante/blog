@@ -1,0 +1,48 @@
+<div class="hero-art" aria-hidden="true" data-pagefind-ignore>
+  <svg class="hero-art-scene" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="hero-dot-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1" fill="currentColor" />
+      </pattern>
+      <linearGradient id="hero-field-fade">
+        <stop stop-color="white" stop-opacity=".08" />
+        <stop offset=".45" stop-color="white" stop-opacity=".35" />
+        <stop offset="1" stop-color="white" />
+      </linearGradient>
+      <mask id="hero-field-mask">
+        <rect width="1440" height="640" fill="url(#hero-field-fade)" />
+      </mask>
+    </defs>
+
+    <g mask="url(#hero-field-mask)">
+      <rect class="hero-art-grid" width="1440" height="640" fill="url(#hero-dot-grid)" />
+      <g class="hero-art-rings">
+        <circle cx="1020" cy="320" r="150" />
+        <circle cx="1020" cy="320" r="260" />
+        <circle cx="1020" cy="320" r="380" />
+        <circle cx="1020" cy="320" r="520" />
+      </g>
+      <g class="hero-art-orbit hero-art-orbit-outer">
+        <circle class="hero-art-dashed-ring" cx="1020" cy="320" r="440" />
+        <path class="hero-art-cross" d="M1014-120h12m-6-6v12M1014 760h12m-6-6v12M574 320h12m-6-6v12M1454 320h12m-6-6v12" />
+      </g>
+      <g class="hero-art-orbit hero-art-orbit-one">
+        <circle class="hero-art-trail" cx="1020" cy="320" r="260" stroke-dasharray="60 1574" />
+        <circle class="hero-art-point" cx="1280" cy="320" r="4" />
+        <circle class="hero-art-point-halo" cx="1280" cy="320" r="11" />
+        <circle class="hero-art-point" cx="760" cy="320" r="2" />
+      </g>
+      <g class="hero-art-orbit hero-art-orbit-two">
+        <circle class="hero-art-trail" cx="1020" cy="320" r="380" stroke-dasharray="90 2298" />
+        <circle class="hero-art-point" cx="1400" cy="320" r="3" />
+        <circle class="hero-art-point-halo" cx="1400" cy="320" r="9" />
+        <circle class="hero-art-point" cx="640" cy="320" r="3" />
+      </g>
+      <g class="hero-art-orbit hero-art-orbit-three">
+        <circle class="hero-art-point" cx="1520" cy="463" r="3" />
+        <circle class="hero-art-point" cx="520" cy="177" r="2" />
+        <path class="hero-art-diamond" d="m1020-207 7 7-7 7-7-7z" />
+      </g>
+    </g>
+  </svg>
+</div>

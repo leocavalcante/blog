@@ -4,13 +4,33 @@
   margin-inline: auto;
 }
 
-.site-header {
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg), transparent 10%);
-  backdrop-filter: blur(12px);
+.site-header-space {
   position: sticky;
   top: 0;
   z-index: 50;
+  overflow-anchor: none;
+  transition: padding-bottom 0.2s ease;
+}
+
+// Keep the document height stable while the visible header contracts.
+.site-header-space:has(.site-header.is-scrolled) {
+  padding-bottom: 16px;
+}
+
+.site-header {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg), transparent 10%);
+  backdrop-filter: blur(12px);
+  transition: box-shadow 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: var(--shadow);
+}
+
+.site-header.is-scrolled .header-inner {
+  min-height: 56px;
 }
 
 .header-inner {
@@ -19,6 +39,15 @@
   justify-content: space-between;
   min-height: 72px;
   gap: 20px;
+  transition: min-height 0.2s ease, gap 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header-space,
+  .site-header,
+  .header-inner {
+    transition: none;
+  }
 }
 
 .site-footer {
@@ -42,5 +71,13 @@
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .site-header.is-scrolled .header-inner {
+    gap: 8px;
+  }
+
+  .site-header-space:has(.site-header.is-scrolled) {
+    padding-bottom: 12px;
   }
 }
